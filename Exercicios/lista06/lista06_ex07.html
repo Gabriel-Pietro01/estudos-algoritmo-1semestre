@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 06 - Exercicio 07</title>
+</head>
+<body>
+    <h1>Lista 06 - Exercicio 07</h1> <br>
+    Login:
+    <input type="text" id="input_login">
+    <br><br>
+    Senha:
+    <input type="password" id="input_senha">
+    <br><br>
+    <button onclick="entrar()">Entrar</button><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function entrar() {
+        var login = input_login.value;
+        var senha = input_senha.value;
+
+        if (login == "SPTech" && senha == "digital") {
+            alert("Usuário autenticado com sucesso");
+        } else {
+            alert("Falha na autenticação");
+        }
+    }
+</script>
