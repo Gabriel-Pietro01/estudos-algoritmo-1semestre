@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 07 - Exercicio 02</title>
+</head>
+<body>
+    <h1>Lista 07 - Exercicio 02</h1> <br>
+    Nota do ENEM:
+    <input type="number" id="input_nota">
+    <br><br>
+    Nota do Vestibular Interno:
+    <input type="number" id="input_notaInterno">
+    <br><br>
+    <button onclick="avaliar()">Avaliação</button><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function avaliar() {
+        var notaEnem = Number(input_nota.value);
+        var notaInterna = Number(input_notaInterno.value);
+
+        if (notaEnem >= 800 || notaInterna >= 700) {
+            alert("Parabéns! Aprovado");
+        } else {
+            alert("Tente semestre que vem!");
+        }
+    }
+</script>

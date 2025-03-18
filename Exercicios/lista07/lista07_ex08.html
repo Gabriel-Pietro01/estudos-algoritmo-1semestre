@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 07 - Exercicio 08</title>
+</head>
+<body>
+    <h1>Lista 07 - Exercicio 08</h1> <br>
+    Nome da Empresa:
+    <input type="text" id="input_nome">
+    <br><br>
+    Valor da Bolsa da Empresa:
+    <input type="number" id="input_valorBolsa">
+    <br><br>
+    Valor do VR:
+    <input type="number" id="input_vr">
+    <br><br>
+    Tempo de deslocamento até a SPTech:
+    <input type="number" id="input_tempo">
+    <br><br>
+    <button onclick="preferir()">É preferida?</button><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function preferir() {
+        var nome = input_nome.value;
+        var valorBolsa = Number(input_valorBolsa.value);
+        var valorVr = Number(input_vr.value);
+        var tempoDeslocamento = Number(input_tempo.value);
+
+        if (valorBolsa >= 800 || valorVr >= 20 || tempoDeslocamento <= 30) {
+            div_mensagem.innerHTML = `A empresa ${nome} é uma de suas preferências`;
+        } else {
+            div_mensagem.innerHTML = `A empresa ${nome} está fora da sua lista`;
+        }
+
+    }
+</script>

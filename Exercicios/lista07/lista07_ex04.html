@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 07 - Exercicio 04</title>
+</head>
+<body>
+    <h1>Lista 07 - Exercicio 04</h1> <br>
+    Forma de Pagamento:
+    <select name="" id="select_forma">
+        <option value="Dinheiro">Dinheiro</option>
+        <option value="Debito">Cartão de Débito</option>
+        <option value="Credito">Cartão de Crédito</option>
+        <option value="Boleto">Boleto</option>
+    </select>
+    <br><br>
+    <button onclick="analisar()">Analisar compra</button><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var formaPagamento = select_forma.value;
+
+        if (formaPagamento == "Dinheiro" || formaPagamento == "Debito") {
+            div_mensagem.innerHTML = "Você terá que pagar a vista";
+        } else {
+            div_mensagem.innerHTML = "Pagamento poderá ser parcelado";
+        }
+    }
+</script>

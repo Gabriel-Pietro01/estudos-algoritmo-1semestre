@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 07 - Exercicio 05</title>
+</head>
+<body>
+    <h1>Lista 07 - Exercicio 05</h1> <br>
+    Digite a temperatura:
+    <input type="number" id="input_temperatura">
+    <button onclick="analisar()">Analisar clima</button><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var temperatura = Number(input_temperatura.value);
+
+        if (temperatura < 21 || temperatura > 24) {
+            alert("Alerta de desconforto!");
+
+            if (temperatura < 21) {
+                alert("As pessoas vão ter hipotermia");
+            } else {
+                alert("As pessoas vão derreter");
+            }
+        } 
+    }
+</script>

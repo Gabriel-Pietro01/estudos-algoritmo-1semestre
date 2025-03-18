@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 07 - Exercicio 03</title>
+</head>
+<body>
+    <h1>Lista 07 - Exercicio 03</h1> <br>
+    Renda Individual:
+    <input type="number" id="input_rendaIndividual">
+    <br><br>
+    Renda Familiar:
+    <input type="number" id="input_rendaFamiliar">
+    <br><br>
+    <button onclick="verificar()">Terei o benefício</button><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function verificar() {
+        var rendaIndividual = Number(input_rendaIndividual.value);
+        var rendaFamiliar = Number(input_rendaFamiliar.value);
+
+        if (rendaIndividual <= 2000 || rendaFamiliar <= 3000) {
+            alert("Você terá direito ao auxílio");
+        } else {
+            alert("Sem direito ao auxílio");
+        }
+    }
+</script>
