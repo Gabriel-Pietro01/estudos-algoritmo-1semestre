@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores</title>
+</head>
+<body>
+    Digite a temperatura:
+    <input type="number" id="input_temperatura">
+    <button onclick="analisar()">Analisar</button><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var temperatura = Number(input_temperatura.value);
+
+        if (temperatura < 15 || temperatura > 25) {
+            div_mensagem.innerHTML = "Temperatura desconfortável";
+        } else {
+            div_mensagem.innerHTML = "Temperatura confortável";
+        }
+    }
+</script>
