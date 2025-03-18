@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 03 - Exercicio 01</title>
+</head>
+<body>
+    <h1>Exercicio 01</h1>
+
+    <h3>Digite sua idade:</h3>
+    <input type="number" id="input_n1"><br><br>
+
+    <button onclick="aposentadoriaH()">Aposentadoria Homem</button>
+    <button onclick="aposentadoriaM()">Aposentadoria Mulher</button>
+</body>
+</html>
+
+<script>
+    function aposentadoriaH() {
+        if (input_n1.value >= 70) {
+            alert('Você já tem idade para se aposentar !');
+        } else if (input_n1.value < 70) {
+            alert('Faltam ' + (70 - input_n1.value) + ' anos para você conseguir se aposentar!');
+        }
+    }
+
+    function aposentadoriaM() {
+        if (input_n1.value >= 60) {
+            alert('Você já tem idade para se aposentar !');
+        } else if (input_n1.value < 60) {
+            alert('Faltam ' + (60 - input_n1.value) + ' anos para você conseguir se aposentar!');
+        }
+    }
+</script>

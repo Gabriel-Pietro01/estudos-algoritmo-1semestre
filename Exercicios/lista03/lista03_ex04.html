@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 03 - Exercicio 04</title>
+</head>
+<body>
+    <h1>Exercicio 04</h1>
+
+    <h3>Nome do Guerreiro:</h3>
+    <input type="text" id="input_guerreiro" placeholder="Ex: Goku"><br><br>
+
+    <h3>Quantidad de Ki Normal:</h3>
+    <input type="number" id="input_qtd"><br><br>
+
+    <button onclick="verKi()">Ver Ki em cada forma</button>
+</body>
+</html>
+
+<script>
+    function verKi() {
+        alert(input_guerreiro.value + ', você em sua forma de Super Sayajin tem o Ki de ' + Number(input_qtd.value) * 50);
+        alert(input_guerreiro.value + ', já em sua forma de Super Sayajin 2 tem o Ki de ' + Number(input_qtd.value) * 100);
+    }
+</script>

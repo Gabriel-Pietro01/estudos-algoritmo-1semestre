@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 If - Exercicio 19</title>
+</head>
+<body>
+    <h1>Exercicio 19</h1><br>
+
+    Temperatura do ambiente:<input type="number" id="input_temperatura"><br><br>
+
+    <button onclick="verificar()">Verificar clima</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function verificar() {
+        var temperatura = Number(input_temperatura.value);
+
+        if (temperatura < 10) {
+            div_mensagem.innerHTML = `Temperatura: ${temperatura}<br>Apropriada p/ conservar alimento<br><img src="alimentobom.jpg" alt="Alimento em Bom estado" width="500px">`;
+        } else {
+            div_mensagem.innerHTML = `Temperatura: ${temperatura}<br>Inapropriada p/ conservar alimento<br><img src="alimentomal.jpg" alt="Alimento em Mau estado" width="500px">`;
+        }
+    }
+</script>

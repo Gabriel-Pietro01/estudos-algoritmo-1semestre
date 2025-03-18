@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 If - Exercicio 12</title>
+</head>
+<body>
+    <h1>Exercicio 12</h1><br>
+
+    Peso total do elevador:<input type="number" id="input_pesoTotal"><br><br>
+
+    <button onclick="ligar()">Ligar elevador</button><br><br>
+</body>
+</html>
+
+<script>
+    function ligar() {
+        var pesoElevador = Number(input_pesoTotal.value);
+
+        if (pesoElevador < 500) {
+            alert("Elevador vai se mover")
+        } else {
+            alert("Alguém precisa descer do elevador")
+        }
+    }
+</script>

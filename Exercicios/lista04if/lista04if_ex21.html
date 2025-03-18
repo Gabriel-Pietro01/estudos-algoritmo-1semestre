@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 If - Exercicio 21</title>
+</head>
+<body>
+    <h1>Exercicio 21</h1><br>
+
+    Meta de economia:<input type="number" id="input_meta"><br><br>
+    Valor que tem guardado:<input type="number" id="input_valorGuardado"><br><br>
+
+    <button onclick="analisar()">Analisar economia</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var metaEconomia = Number(input_meta.value);
+        var valorGuardado = Number(input_valorGuardado.value);
+
+        if (valorGuardado >= metaEconomia) {
+            div_mensagem.innerHTML = `Parabéns, meta alcançada!`;
+
+            if (valorGuardado > metaEconomia) {
+                div_mensagem.innerHTML += `<br>Meta ultrapassada em R$${valorGuardado - metaEconomia}!`
+            }
+        } else {
+            div_mensagem.innerHTML = `Força! Ainda em busca da meta! Falta R$${metaEconomia - valorGuardado}.`
+        }
+
+    }
+</script>

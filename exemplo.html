@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha primeira página com JS</title>
+</head>
+<body>
+    
+    <h1>Minha primeira página com JS</h1>
+
+    <h6>Este é um subtitulo pequeno</h6>
+
+    Nome:<input id="input_nome" type="text" value="Nome inicial" placeholder="Nome exemplo"/>
+    <button>Teste</button>
+
+    <button onclick="cumprimentar()">cumprimentar</button>
+
+</body>
+</html>
+
+<script>
+    alert('Iniciei a página!')
+    // nome = document.getElementById("input_nome");
+
+    function cumprimentar() {
+        alert('Olá, ' + input_nome.value);
+    }
+</script>

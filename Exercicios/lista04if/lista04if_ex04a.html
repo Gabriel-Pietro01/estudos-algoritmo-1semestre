@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 If - Exercicio 04a</title>
+</head>
+<body>
+    <h1>Exercicio 04a</h1><br>
+
+    Valor da Pizza:<input type="number" id="input_valor"><br><br>
+    Amigos presentes:<input type="number" id="input_qtdAmigos"><br><br>
+
+    <button onclick="calcular()">Rola a pizza?</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var valorPizza = Number(input_valor.value);
+        var amigos = Number(input_qtdAmigos.value);
+
+        var valorAmigos = valorPizza / amigos;
+
+        div_mensagem.innerHTML = `Cada amigo vai pagar  R$${valorAmigos.toFixed(2)} pela pizza<br>`
+
+        if (valorAmigos > 20) {
+            div_mensagem.innerHTML += '<i><b style="color: red;">Deu ruim! Pizza muito cara!<b><i>';
+        };
+    }
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 05 - Exercicio 06</title>
+</head>
+<body>
+    <h1>Lista 05 - Exercicio 06</h1><br>
+
+    Qual dos seguintes times de São Paulo você torce?
+    <input type="text" id="input_time"><br><br>
+
+    <button onclick="falar()">Fale sobre esse time</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function falar() {
+        var time = input_time.value;
+
+        if (time == "Corinthians") {
+            div_mensagem.innerHTML = `<span style="background-color: black; color: white;">Salve o Corinthians</span>`;
+        } else if (time == "Palmeiras") {
+            div_mensagem.innerHTML = `<span style="background-color: green; color: white;">Salve o alviverde imponente</span>`;
+        } else if (time == "Santos") {
+            div_mensagem.innerHTML = `<span style="background-color: white; color: black;">Agora quem dá a bola é o Santos</span>`;
+        } else {
+            div_mensagem.innerHTML = `<span style="background-color: black; color: red;">Salve o Tricolor paulista</span>`;
+        }
+    }
+</script>

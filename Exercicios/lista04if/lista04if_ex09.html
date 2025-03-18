@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 If - Exercicio 09</title>
+</head>
+<body>
+    <h1>Exercicio 09</h1><br>
+
+    Informe a última série que você assistiu:<input type="text" id="input_serie" placeholder="Ex: How I Met Your Mother"><br><br>
+    Total de episódios assistidos:<input type="number" id="input_epsAssistidos"><br><br>
+
+    <button onclick="verificar()">Verificar nivel</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function verificar() {
+        var serie = input_serie.value;
+        var episodiosVistos = Number(input_epsAssistidos.value);
+        var horasAssistidas = (episodiosVistos * 22) / 60
+
+        div_mensagem.innerHTML = `Vejo que você gosta da serie ${serie}`
+
+        if (horasAssistidas > 30) {
+            div_mensagem.innerHTML += "<br>Uau, você realmente gosta dessa série!"
+        }
+    }
+</script>

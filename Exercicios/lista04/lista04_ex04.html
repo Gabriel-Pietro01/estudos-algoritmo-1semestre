@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 - Exercicio 04</title>
+</head>
+<body>
+    <h1>Exercicio 04</h1><br>
+
+    Quantidade de Votos (Candidato A):<input type="number" id="input_votosA"><br><br>
+    Quantidade de Votos (Candidato B):<input type="number" id="input_votosB"><br><br>
+    Quantidade de Votos Brancos:<input type="number" id="input_votosBranco"><br><br>
+    Quantidade de Votos Nulos:<input type="number" id="input_votosNulo"><br><br>
+
+
+    <button onclick="calcular()">Resultado da Eleição</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var candidatoA = Number(input_votosA.value);
+        var candidatoB = Number(input_votosB.value);
+        var branco = Number(input_votosBranco.value);
+        var nulo = Number(input_votosNulo.value);
+
+        var total = candidatoA + candidatoB + branco + nulo;
+
+        div_mensagem.innerHTML =`Total de votos: ${total}<br>
+                                Candidato A: ${(candidatoA / total) * 100}% (${candidatoA} votos)<br>
+                                Candidato B: ${(candidatoB / total) * 100}% (${candidatoB} votos)<br>
+                                Inválidos: ${((branco + nulo) / total) * 100}% (${branco + nulo} votos) `
+    }
+</script>

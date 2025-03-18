@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 If - Exercicio 13</title>
+</head>
+<body>
+    <h1>Exercicio 13</h1><br>
+
+    Nota de Português:<input type="number" id="input_n1"><br><br>
+    Nota de Matemática:<input type="number" id="input_n2"><br><br>
+
+    <button onclick="verificar()">Verificar situação</button><br><br>
+</body>
+</html>
+
+<script>
+    function verificar() {
+        var nota1 = Number(input_n1.value);
+        var nota2 = Number(input_n2.value);
+        var media = (nota1 + nota2) / 2;
+
+        if (media >= 6) {
+            alert("Parabéns aprovado!");
+        } else {
+            alert("Tente outra vez...");
+        }
+    }
+</script>

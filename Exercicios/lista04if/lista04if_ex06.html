@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 If - Exercicio 06</title>
+</head>
+<body>
+    <h1>Exercicio 06</h1><br>
+
+    Valor da Renda Familiar:<input type="number" id="input_renda"><br><br>
+    Valor da Prestação:<input type="number" id="input_prestacao"><br><br>
+
+    <button onclick="calcular()">Verificar financiamento</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var rendaFamiliar = Number(input_renda.value);
+        var prestacao = Number(input_prestacao.value);
+        var porcentoRenda = (prestacao / rendaFamiliar) * 100;
+
+        div_mensagem.innerHTML = `A prestação corresponde a ${porcentoRenda}% da renda familiar`
+
+        if (porcentoRenda > 30) {
+            div_mensagem.innerHTML += `<br><b style="color: red;">Será necessário complementar a renda familiar</b>`
+        }
+        
+    }
+</script>

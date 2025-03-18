@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 02 - Exercicio 04</title>
+</head>
+<body>
+    <h1>Exercicio 04</h1>
+    Nome da Rua/Avenida/Vila:<input type="text" id="input_nome" placeholder="Ex: Vila Mara"><br><br>
+    Número da Casa:<input type="text" id="input_ncasa" placeholder="Ex: 563"><br><br>
+    <button onclick="consultar()">Onde eu moro</button>
+</body>
+</html>
+
+<script>
+    function consultar() {
+        alert('Seu logradouro é ' + input_nome.value );
+        alert('O número do seu logradouro é ' + input_ncasa.value);
+    }
+</script>

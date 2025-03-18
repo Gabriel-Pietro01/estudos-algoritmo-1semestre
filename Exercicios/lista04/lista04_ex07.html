@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 - Exercicio 07</title>
+</head>
+<body>
+    <h1>Exercicio 07</h1><br>
+
+    Valor da passagem de ônibus:<input type="number" id="input_passagem"><br><br>
+    Quantidade de Viagens realizadas no mês:<input type="number" id="input_qtdViagem"><br><br>
+    Distância do trabalho até sua casa (km):<input type="number" id="input_distancia"><br><br>
+
+    <button onclick="calcular()">Calcular VT</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    var kmCount = 0.75;
+    var aplicativo = 10 / 100;
+
+    function calcular() {
+        var valor = Number(input_passagem.value);
+        var qtd = Number(input_qtdViagem.value);
+        var distancia = Number(input_distancia.value);
+
+        var total = valor * qtd;
+        var totalAplicativo = (distancia * kmCount) * (qtd * aplicativo);
+
+        div_mensagem.innerHTML =`Você vai gastar R$${total} por mês com transporte público.<br>
+                                Sendo 10% do total de viagens podendo ser de aplicativo, custando
+                                R$${totalAplicativo}`;
+    }
+</script>

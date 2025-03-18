@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 - Exercicio 02</title>
+</head>
+<body>
+    <h1>Exercicio 02</h1><br>
+
+    Valor a ser sacado ou depositado:<input type="number" id="input_valor">
+
+    <button onclick="sacar()">Sacar</button>
+    <button onclick="depositar()">Depositar</button><br><br>
+
+    <div id="div_saldo">Saldo atual = R$0</div>
+</body>
+</html>
+
+<script>
+    var saldo = 0
+
+    function sacar() {
+        var valor = Number(input_valor.value);
+        saldo = saldo - valor;
+        alert("Saque de R$" + valor + " efetuado! Saldo atual = R$" + saldo)
+        div_saldo.innerHTML = "Saldo atual = R$" + saldo;
+    }
+
+    function depositar(){
+        var valor = Number(input_valor.value);
+        saldo = saldo + valor;
+        alert("Depósito de R$" + valor + " efetuado! Saldo atual = R$" + saldo)
+        div_saldo.innerHTML = "Saldo atual = R$" + saldo;
+    }
+</script>

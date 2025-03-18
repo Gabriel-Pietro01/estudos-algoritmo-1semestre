@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 If - Exercicio 03</title>
+</head>
+<body>
+    <h1>Exercicio 03</h1><br>
+
+    Nota Português:<input type="number" id="input_n1"><br><br>
+    Nota Matemática:<input type="number" id="input_n2"><br><br>
+    Nota Algoritmos:<input type="number" id="input_n3"><br><br>
+
+    <button onclick="calcMedia()">Analisar Desempenho</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function calcMedia() {
+        var nota1 = Number(input_n1.value);
+        var nota2 = Number(input_n2.value);
+        var nota3 = Number(input_n3.value);
+ 
+
+        var media = (nota1 + nota2 + nota3) / 3;
+
+        div_mensagem.innerHTML = `Sua média foi de ${media.toFixed(2)}<br>`
+
+        if (media > 9.4) {
+            div_mensagem.innerHTML += "Parabéns, você é fora de série!"
+        };
+    }
+</script>

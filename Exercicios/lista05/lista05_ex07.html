@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 05 - Exercicio 07</title>
+</head>
+<body>
+    <h1>Lista 05 - Exercicio 07</h1><br>
+
+    Quantidade de pães comidas consumidos por dia:
+    <input type="number" id="input_qtdPaes"><br><br>
+
+    Quantidade de pacotes de bolacha consumidas por dia:
+    <input type="number" id="input_qtdBolacha"><br><br>
+
+    Quantidade de copos de achocolatado consumidos por dia:
+    <input type="number" id="input_qtdCopo"><br><br>
+
+    <button onclick="verificar()">Verificar calorias</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var qtdPaes = Number(input_qtdPaes.value);
+        var qtdBolacha = Number(input_qtdBolacha.value);
+        var qtdAchocolatado = Number(input_qtdCopo.value);
+
+        var calPaoBase = 50;
+        var calBolachaBase = 80;
+        var calAchBase = 70;
+
+        var caloriasConsumidas = (qtdPaes * calPaoBase) + (qtdBolacha * calBolachaBase) + (qtdAchocolatado * calAchBase);
+
+        if (caloriasConsumidas < 200) {
+            div_mensagem.innerHTML = `Parabéns, vai ficar em forma!`;
+        } else if (caloriasConsumidas <= 400) {
+            div_mensagem.innerHTML = `Cuidado, vai ficar menos saudável !`;
+        } else {
+            div_mensagem.innerHTML = `Alerta crítico de saúde !!!`;
+        }
+    }
+</script>

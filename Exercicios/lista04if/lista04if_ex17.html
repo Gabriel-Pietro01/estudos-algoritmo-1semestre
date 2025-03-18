@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 If - Exercicio 17</title>
+</head>
+<body>
+    <h1>Exercicio 17</h1><br>
+
+    Frequência do aluno:<input type="number" id="input_frequencia"><br><br>
+
+    <button onclick="analisar()">Analisar frequência</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var frequencia = Number(input_frequencia.value);
+
+        if (frequencia >= 50) {
+            div_mensagem.innerHTML = `<img src="alunoestudioso.jpg" alt="Estudioso" width="500px">`;
+        } else {
+            div_mensagem.innerHTML = `<img src="turista.jpg" alt="Turista" width="500px">`;
+        }
+    }
+</script>

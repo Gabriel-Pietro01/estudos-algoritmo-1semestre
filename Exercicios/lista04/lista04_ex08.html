@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 - Exercicio 08</title>
+</head>
+<body>
+    <h1>Exercicio 08</h1><br>
+
+    Ki Base:<input type="number" id="input_ki"><br><br>
+
+    <h3>Devo me transformar em...</h3><br><br>
+
+    <button onclick="ssj()">SSJ</button>
+    <button onclick="ssj2()">SSJ 2</button>
+    <button onclick="ssj3()">SSJ 3</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function ssj() {
+        var ki = Number(input_ki.value)
+
+        div_mensagem.innerHTML = `Após se transformar em SSJ1, o ki desse Sayajin passa a ser de ${ki * 50}`;
+    }
+    function ssj2() {
+        var ki = Number(input_ki.value)
+
+        div_mensagem.innerHTML = `Após se transformar em SSJ2, o ki desse Sayajin passa a ser de ${ki * 100}`;
+    }
+    function ssj3() {
+        var ki = Number(input_ki.value)
+
+        div_mensagem.innerHTML = `Após se transformar em SSJ3, o ki desse Sayajin passa a ser de ${ki * 200}`;
+    }   
+</script>

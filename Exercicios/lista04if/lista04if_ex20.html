@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 If - Exercicio 20</title>
+</head>
+<body>
+    <h1>Exercicio 20</h1><br>
+
+    Quantidade de homens no elevador:<input type="number" id="input_qtdHomens"><br><br>
+    Quantidade de mulheres no elevador:<input type="number" id="input_qtdMulheres"><br><br>
+
+    <button onclick="ligar()">Ligar elevador</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function ligar() {
+        var qtdHomens = Number(input_qtdHomens.value);
+        var qtdMulheres = Number(input_qtdMulheres.value);
+        var pesoTotal = (qtdHomens * 90) + (qtdMulheres * 70);
+
+        if (pesoTotal <= 500) {
+            div_mensagem.innerHTML = `<p style="color: green;">O elevador vai se mover, pois está com ${pesoTotal}kg.</p>`
+        } else {
+            div_mensagem.innerHTML = `<p style="color: red;">Alguém precisa descer. Precisa perder ${pesoTotal - 500}kg para mover o elevador.</p>`
+        }
+
+    }
+</script>

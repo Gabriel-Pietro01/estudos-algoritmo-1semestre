@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 05 - Exercicio 13</title>
+</head>
+<body>
+    <h1>Lista 05 - Exercicio 13</h1><br>
+
+    Qual Pokémon inicial você escolheria ?! (entre Charmander, Bulbasaur e Squirtle) <br><br>
+    <input type="text" id="input_pokemon"><br><br>
+
+    <button onclick="escolher()">Escolher Pokémon</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function escolher() {
+        var pokemon = input_pokemon.value;
+
+        if (pokemon == 'Charmander') {
+            div_mensagem.innerHTML = `<img src="charmander.png" alt="Charmander" style="width: 300px">`;
+        } else if (pokemon == 'Bulbasaur') {
+            div_mensagem.innerHTML = `<img src="bulbasaur.jpg" alt="Bulbasaur" style="width: 300px">`;
+        } else if (pokemon == 'Squirtle') {
+            div_mensagem.innerHTML = `<img src="squirtle.jpg" alt="Squirtle" style="width: 300px">`;
+        } else {
+            div_mensagem.innerHTML = `Ei, este pokémon não estava nas opções !`
+        }
+    }
+</script>

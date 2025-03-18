@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 03 - Exercicio 03</title>
+</head>
+<body>
+    <h1>Exercicio 03</h1>
+
+    <h3>Valor da passagem:</h3>
+    <input type="number" id="input_valor"><br><br>
+
+    <h3>Quantidade de viagens que serão feitas no mês:</h3>
+    <input type="number" id="input_qtd"><br><br>
+
+    <button onclick="economiza()">Ver economia</button>
+</body>
+</html>
+
+<script>
+    function economiza() {
+        alert('Você economizará R$' + ((input_valor.value * input_qtd.value) / 2));
+    }
+</script>

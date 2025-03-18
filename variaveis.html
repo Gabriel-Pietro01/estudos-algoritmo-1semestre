@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Ano de Nascimento:
+    <input type="number" id="input_nascimento"><br><br>
+
+    <button onclick="ver()">Ver idade</button>
+</body>
+</html>
+
+<script>
+    function ver() {
+        var nascimento = Number(input_nascimento.value);
+        var idade = 2025 - nascimento;
+
+        alert('Sua idade é ' + idade);
+
+        /*
+            var - palavra reservada que indica criação de variáveis
+            nascimento - identificação da variável (nome dela)
+            = - representa atribuição de valores
+            input_nascimento.value - representa o valor a ser atribuido
+        */
+    }
+</script>

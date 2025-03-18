@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 If - Exercicio 11</title>
+</head>
+<body>
+    <h1>Exercicio 11</h1><br>
+
+    Quantidade de filhos que você tem:<input type="number" id="input_qtdFilhos"><br><br>
+
+    <button onclick="analisar()">Analisar familia</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var quantidadeFilhos = Number(input_qtdFilhos.value)
+        var frase = "";
+
+        if (quantidadeFilhos >= 1) {
+            frase += 'Não tem TV<br>';
+
+            if (quantidadeFilhos >= 2) {
+                frase += 'Não tem internet<br>';
+
+                if (quantidadeFilhos >= 3) {
+                    frase += 'Não tem video game<br>'
+
+                    if (quantidadeFilhos >= 4) {
+                        frase += 'Não tem Netflix'
+                    }
+                } 
+            }
+        }
+
+        div_mensagem.innerHTML = frase;
+    }
+</script>

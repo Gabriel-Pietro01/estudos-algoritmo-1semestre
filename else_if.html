@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Else If</title>
+</head>
+<body>
+    Informe seu Salário:
+    <input type="text" id="input_salario">
+    <button onclick="analisar()">Analisar Salário</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var salario = Number(input_salario.value);
+
+        if (salario < 1509) {
+            div_mensagem.innerHTML = `Tá ganhando MUITO mal.`;
+        } else if (salario <= 3000) {
+            div_mensagem = `Tá ganhando mal.`;
+        } else if (salario <= 5000) {
+            div_mensagem = `Dá pra viver.`;
+        } else if (salario <= 10000) {
+            div_mensagem = `Dá pra comprar e azeite.`;
+        } else {
+            div_mensagem = `Tá ganhando bem`;
+        }
+    }
+</script>

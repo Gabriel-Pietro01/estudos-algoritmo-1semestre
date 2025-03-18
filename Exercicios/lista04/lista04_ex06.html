@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 - Exercicio 06</title>
+</head>
+<body>
+    <h1>Exercicio 06</h1><br>
+
+    Qual sabor de pizza ?<input type="text" id="input_sabor"><br><br>
+    Preço da Pizza:<input type="number" id="input_preco"><br><br>
+    Quantidade de amigos que vão comer a pizza:<input type="number" id="input_qtd"><br><br>
+
+    <button onclick="calcular()">Ver valor por amigo</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var sabor = input_sabor.value;
+        var valor = Number(input_preco.value);
+        var quantidade = Number(input_qtd.value);
+
+        var valorTotal = valor + (valor * 0.10);
+        var valorPorAmigo = valorTotal / quantidade;
+
+        div_mensagem.innerHTML = `Cada amigo vai colaborar com R$${valorPorAmigo} para a pizza de ${sabor}.`
+    }
+</script>

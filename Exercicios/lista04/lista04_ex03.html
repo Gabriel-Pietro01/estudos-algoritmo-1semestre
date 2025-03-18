@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 - Exercicio 03</title>
+</head>
+<body>
+    <h1>Exercicio 03</h1><br>
+
+    Quantidade de horas dormidas:<input type="number" id="input_qtd">
+
+    <button onclick="calcSono()">Calcular Sono</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function calcSono() {
+        var horasDormidas = Number(input_qtd.value);
+
+        var fase1 = horasDormidas * 0.05;
+        var fase2 = horasDormidas * 0.45;
+        var fase3 = horasDormidas * 0.30;
+        var rem = horasDormidas * 0.20;
+
+        div_mensagem.innerHTML = `Ao dormir ${horasDormidas} horas, você dormiu:<br>
+                                 ${fase1.toFixed(2)} horas na fase 1 <br>
+                                 ${fase2.toFixed(2)} horas na fase 2 <br>
+                                 ${fase3.toFixed(2)} horas na fase 3 <br>
+                                 ${rem.toFixed(2)} horas na fase REM <br>`;
+    }
+</script>

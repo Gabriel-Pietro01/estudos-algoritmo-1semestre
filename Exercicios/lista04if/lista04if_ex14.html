@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 If - Exercicio 14</title>
+</head>
+<body>
+    <h1>Exercicio 14</h1><br>
+
+    Nome:<input type="text" id="input_nome" placeholder="Ex: Junin"><br><br>
+    Idade:<input type="number" id="input_idade"><br><br>
+
+    <button onclick="avaliar()">Avaliar aluno</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function avaliar() {
+        var nomeAluno = input_nome.value;
+        var idade = Number(input_idade.value);
+
+        if (idade >= 18) {
+            div_mensagem.innerHTML = `${nomeAluno}, vamos tirar a CNH?`
+        } else {
+            div_mensagem.innerHTML = `${nomeAluno}, vai jogar PlayStation!`
+        }
+    }
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 03 - Exercicio 05</title>
+</head>
+<body>
+    <h1>Exercicio 05</h1>
+
+    <h3>Nome do Aluno:</h3>
+    <input type="text" id="input_nome" placeholder="Ex: Gabriel"><br><br>
+
+    <h3>Nota (Continuada):</h3>
+    <input type="number" id="input_n1"><br><br>
+
+    <h3>Nota (Semestral):</h3>
+    <input type="number" id="input_n2"><br><br>
+
+    <button onclick="media()">Média</button>
+</body>
+</html>
+
+<script>
+    function media() {
+        alert('A média de ' + input_nome.value + ' será de ' + (Number(input_n1.value) * 0.4 + Number(input_n2.value) * 0.6));
+    }
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 - Exercicio 05</title>
+</head>
+<body>
+    <h1>Exercicio 05</h1><br>
+
+    Digite um número:<input type="number" id="input_numero"><br><br>
+
+    <button onclick="tabuada()">Ver sua Tabuada</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function tabuada() {
+        var numero = Number(input_numero.value);
+
+        div_mensagem.innerHTML =`Tabuada do ${numero} (até o ${numero} x 9)<br>
+                                ${numero} x 0 = ${numero * 0}<br>
+                                ${numero} x 1 = ${numero * 1}<br>
+                                ${numero} x 2 = ${numero * 2}<br>
+                                ${numero} x 3 = ${numero * 3}<br>
+                                ${numero} x 4 = ${numero * 4}<br>
+                                ${numero} x 5 = ${numero * 5}<br>
+                                ${numero} x 6 = ${numero * 6}<br>
+                                ${numero} x 7 = ${numero * 7}<br>
+                                ${numero} x 8 = ${numero * 8}<br>
+                                ${numero} x 9 = ${numero * 9}<br>`
+    }
+</script>

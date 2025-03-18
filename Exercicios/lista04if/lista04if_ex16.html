@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 If - Exercicio 16</title>
+</head>
+<body>
+    <h1>Exercicio 16</h1><br>
+
+    Quantidade de chocolates comprados:<input type="number" id="input_qtdChoco"><br><br>
+
+    <button onclick="comprar()">Compra</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function comprar() {
+        var qtdChoco = Number(input_qtdChoco.value);
+        var valorUnidade = 3.00;
+
+        if (qtdChoco > 12) {
+            valorUnidade = 2.50;
+        }
+
+        var valorPago = qtdChoco * valorUnidade;
+        div_mensagem.innerHTML = `O valor da sua compra foi de R$${valorPago.toFixed(2)}`;
+    }
+</script>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade</title>
+</head>
+<body>
+    <h1>Atividade - Continuada</h1>
+    <br>
+    Nome do Passageiro:  <input type="text" id="input_nome">
+    <br><br>
+    Distância até o destino (km):  <input type="number" id="input_distancia">
+    <br><br>
+    Bandeira da Corrida: 
+    <select name="" id="select_bandeira">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+    <br><br>
+    Horário da Corrida: <input type="number" id="input_horario">
+    <br><br>
+    <button onclick="calcular()">Calcular Corrida</button>
+    <br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function calcular() {
+        var nome = input_nome.value;
+        var distancia = Number(input_distancia.value);
+        var bandeira = Number(select_bandeira.value);
+        var horarioCorrida = Number(input_horario.value);
+
+        var valorBasePorKm = 1.25;
+        var total = 0;
+
+        if (horarioCorrida < 0 || horarioCorrida > 23) {
+            alert("Erro: Dados inválidos.")
+        } else {
+            if (bandeira == 1) {
+                if (horarioCorrida <= 6) {
+                    total = (valorBasePorKm + (valorBasePorKm * 0.05)) * distancia;
+                } else if (horarioCorrida <= 12) {
+                    total = (valorBasePorKm + (valorBasePorKm * 0.1)) * distancia;
+                } else {
+                    total = (valorBasePorKm + (valorBasePorKm * 0.15)) * distancia;
+                }
+            } else if (bandeira == 2) {
+                if (horarioCorrida <= 6) {
+                    total = (valorBasePorKm + (valorBasePorKm * 0.1)) * distancia;
+                } else if (horarioCorrida <= 12) {
+                    total = (valorBasePorKm + (valorBasePorKm * 0.2)) * distancia;
+                } else {
+                    total = (valorBasePorKm + (valorBasePorKm * 0.3)) * distancia;
+                }
+            } else {
+                if (horarioCorrida <= 6) {
+                    total = (valorBasePorKm + (valorBasePorKm * 0.15)) * distancia;
+                } else if (horarioCorrida <= 12) {
+                    total = (valorBasePorKm + (valorBasePorKm * 0.3)) * distancia;
+                } else {
+                    total = (valorBasePorKm + (valorBasePorKm * 0.45)) * distancia;
+                }
+            }
+
+            div_mensagem.innerHTML = `Olá ${nome}, sua corrida, será na bandeira ${bandeira}, percorrerá ${distancia} km e o 
+                                    total da corrida será de R$${total}`;
+        }
+    }
+</script>

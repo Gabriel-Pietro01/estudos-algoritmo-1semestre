@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="zerar()">Zerar contagem</button>
+    <button onclick="contar()">Contar</button>
+
+    <div id="div_resultado"></div>
+    
+</body>
+</html>
+
+<script>
+    var contador = 0;
+
+    function contar() {
+        contador = contador + 1;
+        alert("O contador atual é " + contador)
+        div_resultado.innerHTML = contador
+    }
+
+    function zerar() {
+        contador = 0;
+        alert("Você zerou a contagem!")
+        div_resultado.innerHTML = contador
+    }
+</script>

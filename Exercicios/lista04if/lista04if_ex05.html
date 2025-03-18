@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 04 If - Exercicio 05</title>
+</head>
+<body>
+    <h1>Exercicio 05</h1><br>
+
+    Quantidade de KWh consumida no mês:<input type="number" id="input_qtdKwhMensal"><br><br>
+
+    <button onclick="calcular()">Calcular conta de luz</button><br><br>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var kwhPadrao = 0.85;
+        var kwhConsumidoMensal = Number(input_qtdKwhMensal.value);
+        var valorKwhMensal = kwhConsumidoMensal * kwhPadrao;
+
+        if (kwhConsumidoMensal < 100) {
+            var valorKwhMensal = valorKwhMensal - (valorKwhMensal * 0.1) //valor com desconto de 10%
+        };
+
+        alert(`Você irá pagar R$${valorKwhMensal} de luz este mês.`);
+    }
+</script>
