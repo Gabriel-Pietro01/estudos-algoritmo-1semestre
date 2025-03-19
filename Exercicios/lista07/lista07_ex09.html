@@ -29,13 +29,19 @@
         var preco = Number(input_preco.value);
 
         if (preco < 800 || preco >= 2000) {
-            div_mensagem.innerHTML = `TV fora da faixa de preço`;
+            div_mensagem.innerHTML = `TV fora da faixa de preço <br>`;
+
+            if (preco < 800) {
+                div_mensagem.innerHTML = `Preço baixo demais!`;
+            } else if (preco > 2000) {
+                div_mensagem.innerHTML = `TV cara demais, infelizmente`;
+            }
         } else {
             if (marca == "Mondial" || marca == "Britania") {
                 div_mensagem.innerHTML = `Na faixa de preço, porém marca não confiável`;
+            } else {
+                div_mensagem.innerHTML = `Essa TV pode entrar na sua lista!`;
             }
         }
     }
-
-    // terminar
 </script>
