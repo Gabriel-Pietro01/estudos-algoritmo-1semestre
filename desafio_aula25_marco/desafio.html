@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+<body>
+    <h1>Desafio: Sistema de Recompensas e Descontos</h1>
+    <br><br>
+    Quantidade de Produtos comprados:
+    <input type="number" id="input_quantidade_produtos">
+    <br><br>
+    Valor total gasto: 
+    R$ <input type="number" id="input_valor_total">
+    <br><br>
+    É VIP?
+    <select name="" id="select_cliente_vip">
+        <option value="Sim">Sim</option>
+        <option value="Nao">Não</option>
+    </select>
+    <br><br>
+    <button onclick="calcular()">Calcular Pontos e Descontos</button>
+    <br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var qtdProdutos = Number(input_quantidade_produtos.value);
+        var valorTotalGasto = Number(input_valor_total.value);
+        var vip = select_cliente_vip.value;
+
+        var pontos = 0;
+        var desconto = 0;
+        
+        if (qtdProdutos > 10 && valorTotalGasto > 500 || vip == 'Sim') {
+            desconto += 10;
+        }
+        if (qtdProdutos >= 6 && qtdProdutos <= 10 && valorTotalGasto > 200|| vip == 'Sim') {
+            desconto += 5;
+        }
+        if (qtdProdutos > 10 && valorTotalGasto > 1000 && vip == 'Sim') {
+            desconto += 15;
+        }
+        if( (qtdProdutos > 5 && valorTotalGasto > 200) || vip == 'Sim') {
+            pontos += 50;
+        }
+        if (qtdProdutos > 10 && valorTotalGasto > 500 ) {
+            pontos += 100;
+        }
+        if (qtdProdutos <= 5) {
+            desconto = 0;
+            pontos = 0;
+        }
+
+
+        div_mensagem.innerHTML = `Você pode receber até ${desconto}% de desconto!<br>
+                                Além de acumular ${pontos} pontos de recompensa pelo total gasto`;
+    }
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 08 - Exercicio 02</title>
+</head>
+<body>
+    <h1>Lista 08 - Exercicio 02</h1>
+    <br><br>
+    Tamanho da tela do Celular:
+    <input type="number" id="input_tamanho">
+    <br><br>
+    Cor do celular desejada:
+    <select name="" id="select_cor">
+        <option value="Preto">Preto</option>
+        <option value="Prata">Prata</option>
+        <option value="Azul">Azul</option>
+        <option value="Vermelho">Vermelho</option>
+    </select>
+    <br><br>
+    <button onclick="verificar()">Será que ele gosta</button>
+    <br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function verificar() {
+        var tamanho = Number(input_tamanho.value);
+        var cor = select_cor.value;
+
+        if (tamanho > 6.5 && (cor == "Preto" || cor == "Prata")) {
+            div_mensagem.innerHTML = `<img src='https://i1.sndcdn.com/artworks-wzZ5GSp97UsBboWH-Dfhbwg-t1080x1080.jpg'>`;
+        } else {
+            div_mensagem.innerHTML = `<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy6kTLIjYgo39MTQNRK2XdR1lvq6x6zc-AZw&s'>`;
+        }
+    }
+</script>
