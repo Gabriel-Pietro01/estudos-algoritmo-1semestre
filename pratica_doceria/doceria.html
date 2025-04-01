@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doceria Gourmet</title>
+</head>
+<body>
+    <h1>Doceria Gourmet</h1>
+    <br>
+    <h3>Macaron</h3>
+    Quantidade vendida:
+    <input type="number" id="input_qtdMacaron">
+    Preço Unitário:
+    <input type="number" id="input_precoMacaron">
+    <br><br>
+
+    <h3>Brigadeiro Gourmet</h3>
+    Quantidade vendida:
+    <input type="number" id="input_qtdBrigadeiro">
+    Preço Unitário:
+    <input type="number" id="input_precoBrigadeiro">
+    <br><br>
+
+    <h3>Cupcake</h3>
+    Quantidade vendida:
+    <input type="number" id="input_qtdCupcake">
+    Preço Unitário:
+    <input type="number" id="input_precoCupcake">
+    <br><br>
+
+    <h3>Cheesecake</h3>
+    Quantidade vendida:
+    <input type="number" id="input_qtdCake">
+    Preço Unitário:
+    <input type="number" id="input_precoCake">
+    <br><br>
+
+    <button onclick="verificar()">Verificar Vendas</button>
+    <br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function verificar() {
+        //INPUT DAS QUANTIDADES
+        var qtdMacaron = Number(input_qtdMacaron.value);
+        var qtdBrigadeiro = Number(input_qtdBrigadeiro.value);
+        var qtdCupcake = Number(input_qtdCupcake.value);
+        var qtdCake = Number(input_qtdCake.value);
+
+        //INPUT DOS PREÇOS UNITÁRIOS
+        var precoMacaron = Number(input_precoMacaron.value);
+        var precoBrigadeiro = Number(input_precoBrigadeiro.value);
+        var precoCupcake = Number(input_precoCupcake.value);
+        var precoCake = Number(input_precoCake.value);
+
+        //VALIDAÇÃO
+        if ((qtdMacaron < 0 || precoMacaron < 0) || (qtdBrigadeiro < 0 || precoBrigadeiro < 0) || (qtdCupcake < 0 || precoCupcake < 0) || (qtdCake < 0 || precoCake < 0)) {
+            alert('ERROR: valor inválido (não pode ser negativo!)');
+        } else {
+            var mensagem = '';
+            var qtdTotal = qtdMacaron + qtdBrigadeiro + qtdCupcake + qtdCake;
+
+            var contadorPai = 0;
+            var contadorA = 0;
+            var contadorB = 0;
+            var contadorC = 0;
+            var contadorD = 0;
+
+            while(qtdTotal > contadorPai) {
+
+                while (qtdMacaron > contadorA) {
+                    contadorPai++;
+                    mensagem += `Venda ${contadorPai} - <img src='https://cdn-icons-png.flaticon.com/128/1669/1669086.png' style='height: 25px; width: 25px;'> - R$${precoMacaron}<br><br><br><br>`;
+                    contadorA++;
+                }
+
+                while (qtdBrigadeiro > contadorB) {
+                    contadorPai++;
+                    mensagem += `Venda ${contadorPai} - <img src='https://cdn-icons-png.flaticon.com/128/8628/8628363.png' style='height: 25px; width: 25px;'> - R$${precoBrigadeiro}<br><br><br><br>`;
+                    contadorB++;
+                }
+
+                while (qtdCupcake > contadorC) {
+                    contadorPai++;
+                    mensagem += `Venda ${contadorPai} - <img src='https://cdn-icons-png.flaticon.com/128/3173/3173469.png' style='height: 25px; width: 25px;'> - R$${precoCupcake}<br><br><br><br>`;
+                    contadorC++;
+                }
+
+                while (qtdCake > contadorD) {
+                    contadorPai++;
+                    mensagem += `Venda ${contadorPai} - <img src='https://cdn-icons-png.flaticon.com/128/3565/3565276.png' style='height: 25px; width: 25px;'> - R$${precoCake}<br><br><br><br>`;
+                    contadorD++;
+                }
+            }
+
+            var valorTotal = (qtdMacaron * precoMacaron) + (qtdBrigadeiro * precoBrigadeiro) + (qtdCake * precoCake) + (qtdCupcake + precoCupcake);
+            div_mensagem.innerHTML = `${mensagem}<br><br>Com a quantidade de ${qtdMacaron} Macarons, ${qtdBrigadeiro} Brigadeiros, ${qtdCupcake} Cupcakes e ${qtdCake} Cheesecakes, a venda totalizará R$${valorTotal}`;
+        }
+    }
+</script>

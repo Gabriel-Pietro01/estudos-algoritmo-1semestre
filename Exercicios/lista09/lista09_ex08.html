@@ -25,13 +25,20 @@
 <script>
     function exibir() {
         var contador = 0;
+        var contadorB = 0
         var numeroInformado = Number(input_numero.value);
         var frase = input_frase.value;
-        var mensagem = ``;
+        var fraseFinal = '';
 
         while (contador < numeroInformado) {
             contador++;
-            alert(frase);
+
+            while (contadorB < numeroInformado) {
+                contadorB++;
+                fraseFinal += `${frase}\n`;
+            }
+
+            alert(fraseFinal);
         }
     }
 </script>
