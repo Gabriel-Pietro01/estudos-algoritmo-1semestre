@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 09 - Exercicio 06</title>
+</head>
+<body>
+    <h1>Lista 09 - Exercicio 06</h1> 
+    <br>
+    Digite um número (entre 20 a 100):
+    <input type="text" id="input_numero">
+    <br>
+    <button onclick="exibir()">Adoro múltiplos de 5</button> <br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function exibir() {
+        var contador = 0;
+        var numeroInformado = Number(input_numero.value);
+        var mensagem = ``;
+        if (numeroInformado >= 20 && numeroInformado <= 100) {
+            while (contador < numeroInformado) {
+                contador++;
+
+                if (contador % 5 == 0) {
+                mensagem += `${contador}<br>`;
+                }
+            }
+        
+            div_mensagem.innerHTML = mensagem;
+        } else {
+            alert('ERROR: Número Inválido')
+        }
+
+    }
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 09 - Exercicio 10</title>
+</head>
+<body>
+    <h1>Lista 09 - Exercicio 10</h1> <br>
+    Quantas voltas um carro dará:
+    <input type="text" id="input_qtd">
+    <br><br>
+    <button onclick="iniciar()">Iniciar corrida!</button> <br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function iniciar() {
+        var contador = 0;
+        var voltas = Number(input_qtd.value);
+        var mensagem = '';
+        
+        while (contador < voltas) {
+            contador++;
+            mensagem += `Carro dando a ${contador}° volta<br>`
+        } 
+        
+        div_mensagem.innerHTML = `${mensagem}<br><br>Corrida finalizada!`;
+        
+    }
+</script>

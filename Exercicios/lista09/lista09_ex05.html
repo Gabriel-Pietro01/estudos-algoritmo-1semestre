@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 09 - Exercicio 05</title>
+</head>
+<body>
+    <h1>Lista 09 - Exercicio 05</h1> <br>
+    <button onclick="exibir()">Números cabalísticos</button> <br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function exibir() {
+        var contador = 0;
+        var mensagem = ``;
+
+        while (contador < 30) {
+            contador++;
+
+            if (contador == 3 || contador == 4 || contador == 7 || contador == 10 || contador == 12) {
+                mensagem += 'PULEI (NÚMERO CABALÍSTICO!!!)<br>'
+            } else {
+                mensagem += `${contador}<br>`
+            }
+        }
+        
+        div_mensagem.innerHTML = mensagem;
+        
+    }
+</script>

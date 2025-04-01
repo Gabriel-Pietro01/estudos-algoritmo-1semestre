@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 09 - Exercicio 11</title>
+</head>
+<body>
+    <h1>Lista 09 - Exercicio 11</h1> <br>
+    Qual tabuada deseja visualizar ?
+    <select name="" id="select_tabuada">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select> 
+    <br><br>
+    Até que número a tabuada irá ?
+    <input type="text" id="input_limite">
+    <br><br>
+    <button onclick="ver()">Ver tabuada</button> <br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function ver() {
+        var contador = 0;
+        var numeroTabuada = Number(select_tabuada.value);
+        var limite = Number(input_limite.value);
+        var mensagem = '';
+        
+        while (contador < limite) {
+            contador++;
+            if ((numeroTabuada * contador) % 2 == 0) {
+                mensagem += `<span style='color: blue'>${numeroTabuada} x ${contador} = ${numeroTabuada * contador}<span><br>`
+            } else {
+                mensagem += `<span style='color: red'>${numeroTabuada} x ${contador} = ${numeroTabuada * contador}<span><br>`
+            }
+
+        } 
+        
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>
