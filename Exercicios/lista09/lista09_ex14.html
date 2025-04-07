@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 09 - Exercicio 14</title>
+</head>
+
+<body>
+    <h1>Lista 09 - Exercicio 14</h1> <br>
+    De quantos em quantos dias você vai a academia?
+    <input type="text" id="input_frequencia">
+    <br><br>
+    <button onclick="exibir()">Exibir rotina mensal</button> <br><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function exibir() {
+        var frequencia = Number(input_frequencia.value);
+        var cont = 0;
+        var mensagem = '';
+        var mensagem2 = 'Musculação';
+
+        while (cont <= 30) {
+            if (cont % frequencia == 0) {
+                mensagem += `Dia ${cont} - ${mensagem2}<br>`
+            } else {
+                mensagem += `Dia ${cont} - Comer, dormir, etc.<br>`
+            }
+
+            cont++;
+        }
+
+
+        div_mensagem.innerHTML = mensagem;
+
+        //corrigir
+    }
+</script>

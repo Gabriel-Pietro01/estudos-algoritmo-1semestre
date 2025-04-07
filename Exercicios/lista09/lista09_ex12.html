@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 09 - Exercicio 12</title>
+</head>
+
+<body>
+    <h1>Lista 09 - Exercicio 12</h1> <br>
+    Qual o nome da pessoa que você mais ama ?
+    <input type="text" id="input_nome">
+    <br><br>
+    O quanto você ama ela ?
+    <input type="text" id="input_qtdAmor">
+    <br><br>
+    <button onclick="expressar()">Expressar amor</button> <br><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function expressar() {
+        var nome = input_nome.value;
+        var metrica = Number(input_qtdAmor.value);
+        var mensagem = '';
+
+        if (metrica % 1 == 0) {
+            var cont = 1;
+            while (cont <= metrica) {
+                mensagem += `${nome}, eu te amo! Lembre-se disso.<br>`
+                cont++;
+            }
+
+            div_mensagem.innerHTML = mensagem;
+        } else {
+            alert('ERROR: métrica inválida.')
+        }
+    }
+</script>

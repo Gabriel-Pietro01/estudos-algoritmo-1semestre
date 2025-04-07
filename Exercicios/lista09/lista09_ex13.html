@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 09 - Exercicio 13</title>
+</head>
+
+<body>
+    <h1>Lista 09 - Exercicio 13</h1> <br>
+    Intervalo começa em:
+    <input type="text" id="input_comeco">
+    e termina em:
+    <input type="text" id="input_termino">
+    <br><br>
+    <button onclick="curtir()">Curto 3 e 5!</button> <br><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function curtir() {
+        var comeco = Number(input_comeco.value);
+        var termino = Number(input_termino.value);
+        var mensagem = '';
+
+        while (comeco <= termino) {
+            if (comeco % 3 == 0 && comeco % 5 == 0) {
+                mensagem += `É TRI E PENTA!<br>`
+            } else if (comeco % 3 == 0 ) {
+                mensagem += `É TRI!<br>`
+            } else if (comeco % 5 == 0) {
+                mensagem += `É PENTA!<br>`
+            } else {
+                mensagem += `${comeco}<br>`
+            }
+            comeco++ 
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

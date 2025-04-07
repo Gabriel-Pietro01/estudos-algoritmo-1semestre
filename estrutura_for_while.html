@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas linhas você quer ?
+    <input type="text" id="input_linhas">
+    <br><br>
+    Quantas colunas você quer ?
+    <input type="text" id="input_colunas">
+    <br><br>
+    <button onclick="contar()">Contar</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function contar() {
+        var linhaDesejada = Number(input_linhas.value);
+        var colunaDesejada = Number(input_colunas.value)
+        var mensagem = '';
+
+        for (var linha = 1; linha <= linhaDesejada; linha++) {
+
+            for (var caractere = 1; caractere <= colunaDesejada; caractere++) {
+                mensagem += `${linha}`;
+            }
+
+            mensagem += `<br>`
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>
