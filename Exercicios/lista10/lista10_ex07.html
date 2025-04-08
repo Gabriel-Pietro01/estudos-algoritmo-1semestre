@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 10 - Exercicio 07</title>
+</head>
+<body>
+    <h1>Lista 10 - Exercicio 07</h1> 
+    <br>
+    Digite um número (entre 0 a 200):
+    <input type="text" id="input_numero">
+    <br>
+    <button onclick="exibir()">Viva o 7!</button> <br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function exibir() {
+        var numeroInformado = Number(input_numero.value);
+        var mensagem = ``;
+        if (numeroInformado >= 0 && numeroInformado <= 200) {
+            for (var contador = 0; contador <= numeroInformado; contador++) {
+                if (contador % 7 == 0) {
+                    mensagem += `${contador}<br>`;
+                }
+            }
+        
+            div_mensagem.innerHTML = mensagem;
+        } else {
+            alert('ERROR: Número Inválido')
+        }
+
+    }
+</script>

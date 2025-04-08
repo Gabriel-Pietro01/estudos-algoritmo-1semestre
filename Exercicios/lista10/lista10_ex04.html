@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 10 - Exercicio 04</title>
+</head>
+<body>
+    <h1>Lista 10 - Exercicio 04</h1> <br>
+    <button onclick="par()">S2 Pares</button> <br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function par() {
+        var mensagem = 'Números PARES (até 100):<br><br>';
+        
+        for (var contador = 0; contador <= 100; contador++) {
+            if (contador % 2 == 0) {
+                mensagem += `${contador}<br>`;
+            }
+        } 
+        
+        div_mensagem.innerHTML = mensagem;
+        
+    }
+</script>
