@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Frase:
+    <input oninput="analisar()" type="text" id="input_frase">
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var frase = input_frase.value;
+        var tamanhoFrase = frase.length;
+
+        div_mensagem.innerHTML = `Tamanho da Frase: ${tamanhoFrase} <br>
+                                  Primeiro Caractere: ${frase[0]} <br>
+                                  Terceiro Caractere: ${frase[2]} <br>
+                                  Último Caractere: ${frase[ tamanhoFrase - 1 ]} <br>
+                                  Frase MAIÚSCULA: ${frase.toUpperCase()} <br>
+                                  Frase minúscula: ${frase.toLowerCase()} <br>
+                                  Frase termina com ".com": ${frase.endsWith('.com')} <br>
+                                  Frase começa com "abc": ${frase.startsWith('abc')} <br>
+                                  Frase inclui "@": ${frase.includes('@')} <br>
+                                  Frase inclui caracter especial: ${frase.includes('!') || frase.includes('#')} <br>
+                                  Frase com "4" no primeiro "A": ${frase.replace('A', 4)} <br>
+                                  Frase com "2" em todos "E": ${frase.replaceAll('E', 2)} <br>
+                                  Frase sem espaço e ponto: ${frase.replaceAll('.', '').replaceAll(' ', '')} <br>`;
+    }
+</script>
