@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 11 - Exercicio 01</title>
+</head>
+<body>
+    <h1>Lista 11 - Exercicio 01</h1> <br>
+    Digite seu email: 
+    <input oninput="validar()" type="text" id="input_email">
+    <br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function validar() {
+        var email = input_email.value;
+        
+        if (email.includes('@')) {
+            div_mensagem.innerHTML = 'EMAIL VÁLIDO';
+        } else {
+            div_mensagem.innerHTML = 'EMAIL INVÁLIDO';
+        }
+    }
+</script>

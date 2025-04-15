@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite o CPF:
+    <input oninput="formatar()" maxlength="11" type="text" id="input_cpf"> <br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function formatar() {
+        var cpf = input_cpf.value;
+
+        if (cpf.length < 11) {
+            div_mensagem.innerHTML = "O CPF deve conter exatamente 11 caracteres";
+        } else {
+            div_mensagem.innerHTML = `${cpf} - CPF VÁLIDO!<br>`
+
+            for (var i = 0; i < cpf.length; i++) {
+                var caracterAtual = cpf[i];
+
+                if (i == 2 || i == 5) {
+                    div_mensagem.innerHTML += `${caracterAtual}.`
+                } else if (i == 8) {
+                    div_mensagem.innerHTML += `${caracterAtual}/`
+                } else {
+                    div_mensagem.innerHTML += `${caracterAtual}`
+                }
+            }
+        }
+    }
+</script>

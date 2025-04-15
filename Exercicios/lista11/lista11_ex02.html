@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 11 - Exercicio 02</title>
+</head>
+<body>
+    <h1>Lista 11 - Exercicio 02</h1> <br>
+    Digite seu nome: 
+    <input oninput="validar()" type="text" id="input_nome">
+    <br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function validar() {
+        var nome = input_nome.value;
+        
+        if (nome.length < 10) {
+            div_mensagem.innerHTML = 'Nome deve ter pelo menos 10 letras';
+        } else {
+            div_mensagem.innerHTML = 'Nome OK';
+        }
+    }
+</script>

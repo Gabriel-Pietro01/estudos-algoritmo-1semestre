@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 11 - Exercicio 05</title>
+</head>
+<body>
+    <h1>Lista 11 - Exercicio 05</h1> <br>
+    Digite seu login: 
+    <input type="text" id="input_login"> 
+    <br>
+    Digite sua senha
+    <input type="text" id="input_senha"> 
+    <br>
+    <button onclick="validar()">Validar</button>
+    <br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function validar() {
+        var login = input_login.value;
+        var senha = input_senha.value;
+
+        if (login.endsWith('@SPTech.com.br') == false || senha.length < 4 || login == '@SPTech.com.br') {
+            alert('Valores inválidos')
+        } else {
+            alert('Cadastro válido')
+        }
+    }
+</script>

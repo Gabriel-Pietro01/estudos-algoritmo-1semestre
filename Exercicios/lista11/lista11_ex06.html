@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 11 - Exercicio 06</title>
+</head>
+<body>
+    <h1>Lista 11 - Exercicio 06</h1> <br>
+    Digite uma frase: 
+    <input oninput="validar()" type="text" id="input_frase">
+    <br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function validar() {
+        var frase = input_frase.value;
+        
+        div_mensagem.innerHTML = `A primeira letra é: ${frase[0]} <br>
+                                  A última letra é: ${frase[frase.length - 1]}`
+    }
+</script>

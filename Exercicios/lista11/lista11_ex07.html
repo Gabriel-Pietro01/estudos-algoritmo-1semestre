@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 11 - Exercicio 07</title>
+</head>
+<body>
+    <h1>Lista 11 - Exercicio 07</h1> <br>
+    Digite sua senha: 
+    <input oninput="validar()" type="text" id="input_senha">
+    <br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function validar() {
+        var senha = input_senha.value.toLowerCase();
+        div_mensagem.innerHTML = '';
+
+        for(var i = 0; i < senha.length; i++) {
+            var caracterAtual = senha[i];
+            if (caracterAtual == 'a') {
+                div_mensagem.innerHTML += '@'
+            } else if (caracterAtual == 'e') {
+                div_mensagem.innerHTML += '3'
+            } else {
+                div_mensagem.innerHTML += caracterAtual;
+            }
+        }
+    }
+</script>
