@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite um número:
+    <input type="text" id="input_numero">
+    <br>
+    Digite a quantidade de depósitos:
+    <input type="text" id="input_qtd">
+    <br>
+    <button onclick="ver()">Ver</button>
+    <br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function ver() {
+        var valor = Number(input_numero.value);
+        var quantidade = Number(input_qtd.value);
+        var valorTotal = 0;
+        var mensagem = '';
+
+        for(var i = 1; i <= quantidade; i++) {
+            valorTotal = valorTotal + valor;
+            if(i % 3 == 0) {
+                valorTotal = valorTotal * 1.01
+            }
+            mensagem += `$${valorTotal}<br>`
+            
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

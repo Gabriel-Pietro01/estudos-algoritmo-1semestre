@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 12 - Ex 02</title>
+</head>
+<body>
+    <h1>Lista 12 - Exercicio 02</h1> <br>
+    <button onclick="gerar()">Sortear Time</button> <br>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+    function gerar() {
+        var aleatorio = Math.round(Math.random() * 3 + 1);
+
+        if (aleatorio == 1) {
+            div_mensagem.innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Brasao_do_Sao_Paulo_Futebol_Clube.svg/2054px-Brasao_do_Sao_Paulo_Futebol_Clube.svg.png" style="height: 150px;">`;
+        } else if (aleatorio == 2) {
+            div_mensagem.innerHTML = `<img src="https://a-static.mlcdn.com.br/1500x1500/molde-abs-15mm-time-brasao-escudo-corinthians-farias/fariasformasemoldes/fedacd2467f911efa23a4201ac18501b/6a2dd0833ef0752346b1e1171aedc8a5.jpeg" style="height: 150px;">`;
+        } else if (aleatorio == 3) {
+            div_mensagem.innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/1024px-Palmeiras_logo.svg.png" style="height: 150px;">`;
+        } else {
+            div_mensagem.innerHTML = `<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Santos_Logo.png" style="height: 150px;">`;
+        }
+    }
+</script>

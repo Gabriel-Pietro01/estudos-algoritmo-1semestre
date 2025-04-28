@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 12 - Ex 01</title>
+</head>
+<body>
+    <h1>Lista 12 - Exercicio 01</h1> <br>
+    <button onclick="gerar()">Sortear</button> <br>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+    function gerar() {
+        var aleatorio = Math.random(); // gerar um número aleatório de 0 até 1
+
+        if (aleatorio > 0.5) {
+            div_mensagem.innerHTML = `Eu arredondaria para 1`;
+        } else {
+            div_mensagem.innerHTML = `Eu arredondaria para 0`;
+        }
+    }
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Min: <input type="text" id="input_min"> <br>
+    Max: <input type="text" id="input_max"> <br>
+    <button onclick="gerar()">Gerar Aleatório</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+    function gerar() {
+        var min = Number(input_min.value);
+        var max = Number(input_max.value);
+        var intervalo = max - min;
+
+        var aleatorio = Math.random(); // gerar um número aleatório de 0 até 1
+
+        var aleatorio_ate_10 = aleatorio * 10;
+        var aleatorio_10_ate_11 = aleatorio + 10;
+        var aleatorio_7_ate_15 = aleatorio * 8 + 7;
+
+        var aleatorio_min_ate_max = aleatorio * intervalo + min;
+        var aleatorio_min_ate_max_inteiro = Math.round(aleatorio_min_ate_max);
+
+        var aleatorio_min_ate_max_floor = Math.floor(aleatorio * (intervalo + 1) + min)
+
+
+        div_mensagem.innerHTML = `Aleatório: ${aleatorio}<br>
+                                  Aleatório de 0 até 10: ${aleatorio_ate_10} <br>
+                                  Aleatório de 10 até 11: ${aleatorio_10_ate_11} <br>
+                                  Aleatório de 7 até 11: ${aleatorio_7_ate_15} <br>
+                                  Aleatório com intervalo desejado: ${aleatorio_min_ate_max} <br>
+                                  Aleatório com intervalo desejado round: ${aleatorio_min_ate_max_inteiro} <br>
+                                  Aleatório com intervalo desejado floor: ${aleatorio_min_ate_max_floor} <br>`
+    }
+</script>
