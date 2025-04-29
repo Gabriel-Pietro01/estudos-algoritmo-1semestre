@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 13 - Exercicio 01</title>
+</head>
+<body>
+    <h1>Lista 13 - Exercicio 01</h1>
+    <br>
+    Pesquisar fruta: <input type="text" id="input_fruta">
+    <br>
+    <button onclick="pesquisar()">Pesquisar</button>
+    <br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var lista_frutas = ['Banana', 'Maçã', 'Melancia', 'Pera', 'Laranja', 'Melão'];
+
+    function pesquisar() {
+        var frutaDesejada = input_fruta.value;
+        var temLista = false;
+        var mensagem = '';
+        
+        for(var i = 0; i < lista_frutas.length; i++) {
+            if (lista_frutas[i] == frutaDesejada) {
+                temLista = true;
+            } 
+        }
+
+        if (temLista) {
+            mensagem = `A fruta ${frutaDesejada} existe na lista.`;
+        } else {
+            mensagem = `Não existe a fruta ${frutaDesejada} na lista.`;
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

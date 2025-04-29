@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 13 - Exercicio 03</title>
+</head>
+<body>
+    <h1>Lista 13 - Exercicio 03</h1>
+    <br>
+    Bairro que já morou: <input type="text" id="input_bairro">
+    <br>
+    Número que indica onde você já morou: <input type="text" id="input_numero">
+    <br>
+    <button onclick="cadastrar()">Cadastrar bairro</button> 
+    <br>
+    <button onclick="relembrar()">Relembrar moradia</button>
+    <br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var lista_bairros = [];
+
+    function cadastrar() {
+        var bairro = input_bairro.value;
+        lista_bairros.push(bairro);
+    }
+
+    function relembrar() {
+        var numero = input_numero.value;
+        //continuar
+        div_mensagem.innerHTML = `${numero}° Bairro que você morou: ${lista_bairros[numero - 1]}`
+    }
+</script>
