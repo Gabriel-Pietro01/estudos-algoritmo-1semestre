@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 13 - Exercicio 07</title>
+</head>
+
+<body>
+    <h1>Lista 13 - Exercicio 07</h1>
+    <br>
+    Filme que você gosta muito: <input type="text" id="input_filme">
+    <br>
+    <button onclick="cadastrar()">Cadastrar filme</button>
+    <br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    var lista_filmes = [];
+
+    function cadastrar() {
+        var filme = input_filme.value;
+        var mensagem = '';
+        lista_filmes.push(filme);
+
+        for(var i = 0; i < lista_filmes.length; i++) {
+            if((i + 1) % 2 == 0) {
+                mensagem += `<span style='color: red'>Filme ${i + 1}°: ${lista_filmes[i]} </span><br>`;
+            } else {
+                mensagem += `<span style='color: blue'>Filme ${i + 1}°: ${lista_filmes[i]} </span><br>`;
+            }
+        }
+        div_mensagem.innerHTML = `${mensagem}`;
+    }
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 13 - Exercicio 04</title>
+</head>
+
+<body>
+    <h1>Lista 13 - Exercicio 04</h1>
+    <br>
+    Filme que você gosta muito: <input type="text" id="input_filme">
+    <br>
+    <button onclick="cadastrar()">Cadastrar filme</button>
+    <br>
+    <button onclick="ver()">Ver favoritos</button>
+    <br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    var lista_filmes = [];
+
+    function cadastrar() {
+        var filme = input_filme.value;
+        lista_filmes.push(filme);
+    }
+
+    function ver() {
+        div_mensagem.innerHTML = `Total de Filmes cadastrados: ${lista_filmes.length} <br>
+                                    O que filme que mais gosta é ${lista_filmes[0]}. <br>
+                                    E desses, o que menos gosta é ${lista_filmes[lista_filmes.length - 1]}.`;
+    }
+</script>
