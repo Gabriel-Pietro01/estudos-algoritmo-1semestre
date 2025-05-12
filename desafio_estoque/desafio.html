@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Estoque</title>
+</head>
+
+<body>
+    <h1>ESTOQUE</h1>
+    <br> <br>
+    Nome do Produto: <input type="text" id="input_nome">
+    <br> <br>
+    Código do Produto <input type="number" id="input_codigo">
+    <br> <br>
+    Quantidade: <input type="number" id="input_quantidade">
+    <br> <br>
+    <button onclick="cadastrar()">Cadastrar Produto</button> <br> <br>
+    <button onclick="repor()">Repor Estoque</button> <br> <br>
+    <button onclick="venda()">Vender Produto</button> <br> <br>
+    <button onclick="relatorio()">Exibir Relatório</button> <br> <br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    var listaProdutos = [];
+
+    function validar() {
+        var produto = input_nome.value;
+        var codigo = Number(input_codigo.value);
+        var quantidade = Number(input_quantidade.value);
+        var codigoIgual = false;
+
+        for (var i = 0; i < listaProdutos.length; i++) {
+            if (codigo == listaProdutos[i][1]) {
+                codigoIgual = true;
+            }
+        }
+
+        if (produto == '' || codigo == '' || quantidade == '' || quantidade < 10 || codigoIgual == true) {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    function cadastrar() {
+        var produto = input_nome.value;
+        var codigo = Number(input_codigo.value);
+        var quantidade = Number(input_quantidade.value);
+
+        if (validar() == false) {
+            alert('ERROR: Campos Inválidos');
+        } else if (validar() == true) {
+            listaProdutos.push([produto, codigo, quantidade]);
+            div_mensagem.innerHTML = `Produto ${produto} registrado com sucesso`
+        }
+    }
+
+    function repor() {
+        var produto = input_nome.value;
+        var codigo = Number(input_codigo.value);
+        var quantidade = Number(input_quantidade.value);
+
+        for (var i = 0; i < listaProdutos.length; i++) {
+            if (produto == listaProdutos[i][0] && codigo == listaProdutos[i][1] && listaProdutos[i][2] > 0 && quantidade >= 10) {
+                listaProdutos[i][2] += quantidade
+                if (listaProdutos[i][2] < 10) {
+                    div_mensagem.innerHTML = `${quantidade}x do ${produto} foi reposto com sucesso <br> Código: ${codigo} | Produto: ${produto} | Quantidade em Estoque: ${listaProdutos[i][2]} (Precisa Repor)`;
+                } else {
+                    div_mensagem.innerHTML = `${quantidade}x do ${produto} foi reposto com sucesso <br> Código: ${codigo} | Produto: ${produto} | Quantidade em Estoque: ${listaProdutos[i][2]} (OK)`;
+                }
+            } else {
+                div_mensagem.innerHTML = `Produto não identificado.`;
+            }
+        }
+    }
+
+    function venda() {
+        var produto = input_nome.value;
+        var codigo = Number(input_codigo.value);
+        var quantidade = Number(input_quantidade.value);
+
+        for (var i = 0; i < listaProdutos.length; i++) {
+            if (produto == listaProdutos[i][0] && codigo == listaProdutos[i][1] && listaProdutos[i][2] > 0) {
+                if ((listaProdutos[i][2] - quantidade) < 0) {
+                    div_mensagem.innerHTML = `Quantidade inválida.`;
+                    break
+                }
+                listaProdutos[i][2] -= quantidade
+                if (listaProdutos[i][2] < 10) {
+                    alert(`O Produto ${produto} precisa de reposição!`);
+                    div_mensagem.innerHTML = `${quantidade}x do ${produto} foi vendido com sucesso <br> Código: ${codigo} | Produto: ${produto} | Quantidade em Estoque: ${listaProdutos[i][2]} (Precisa Repor)`;
+                } else {
+                    div_mensagem.innerHTML = `${quantidade}x do ${produto} foi vendido com sucesso <br> Código: ${codigo} | Produto: ${produto} | Quantidade em Estoque: ${listaProdutos[i][2]} (OK)`;
+                }
+
+            } else {
+                div_mensagem.innerHTML = `Produto não identificado.`;
+            }
+        }
+    }
+
+    function relatorio() {
+        var msg = '';
+
+        for (var i = 0; i < listaProdutos.length; i++) {
+            if (listaProdutos[i][2] < 10) {
+                msg += `<br>Código: ${listaProdutos[i][1]} | Produto: ${listaProdutos[i][0]} | Quantidade em Estoque: ${listaProdutos[i][2]} (Precisa Repor) <br>`;
+            } else {
+                msg += `<br>Código: ${listaProdutos[i][1]} | Produto: ${listaProdutos[i][0]} | Quantidade em Estoque: ${listaProdutos[i][2]} (OK) <br>`;
+            }
+        }
+
+        div_mensagem.innerHTML = msg;
+    }
+</script>
