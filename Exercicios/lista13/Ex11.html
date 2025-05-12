@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estoque de Produtos com Cálculo de Valor Total</title>
+</head>
+<body>
+    <!-- a) Pergunte ao usuário o preço de um produto; 
+
+    b) Ao clicar em "Cadastrar", o preço fica cadastrado num lugar que o usuário não vê; 
+    
+    c) Ao clicar em "Atualizar Estoque", deve aparecer a lista de preços cadastrados (em ordem inversa) e um texto como este abaixo:  
+    
+       Você tem X produtos cadastrados em estoque  
+    
+       Seu estoque vale R$Y 
+    
+    Em que X é a quantidade de produtos cadastrados pelo usuário e Y é a soma de todos os valores.  -->
+    <h3>
+        Valor do produto
+    </h3>
+    <input type="text" id="inputValor">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizar()">Atualizar Estoque</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    var listaPrecos = [];
+
+    function cadastrar() {
+        var preco = Number(inputValor.value);
+
+        listaPrecos.push(preco);
+    }
+
+    function atualizar() {
+        var mensagem = '';
+        var quantidade = Number(listaPrecos.length);
+        
+        var i = quantidade
+        for (; i > 0; i--) {
+            mensagem += `${listaPrecos[i-1]}<br>`;
+            
+        }
+        
+        var total = 0;
+        
+        for (var q = 0; q < quantidade; q++) {
+            total += listaPrecos[q];
+        }
+
+        mensagem += `Você tem ${quantidade} produtos cadastrados em estoque<br><br>
+        Seu estoque vale R$${total}`;
+
+        divMensagem.innerHTML = mensagem;
+    }
+</script>

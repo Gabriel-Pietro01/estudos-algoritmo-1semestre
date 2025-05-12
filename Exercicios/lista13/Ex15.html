@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cadastro de Produtos com Relatório de Preço de Venda</title>
+</head>
+<body>
+    <!-- a) Tenha um campo "Nome do produto" e outro "Preço de compra"; 
+
+    b) Tenha um botão "Cadastrar". Ao clicar nele, o nome e preço ficam cadastrados em algum lugar, por enquanto invisível ao usuário  
+    
+    c) Tenha um botão "Relatório de estoque". Ao clicar nele, deve aparecer uma listagem dos produtos cadastrados com seu valor para venda, como no exemplo a seguir:  
+    
+       Total de produtos: 2  
+    
+       Produto 1: Leite de arroz  
+    
+       Preço de compra: R$1.50. Vender por R$1,87  
+    
+       Produto 2: Caixa de chocolates  
+    
+       Preço de compra: R$9.00. Vender por R$11,25  
+    
+    O preço de venda é sempre o valor da compra mais 25%. 
+    
+    #FicaDica: De repente você pode precisar de 2 vetores aqui ;)  -->
+    <h3>Nome do produto</h3>
+    <input type="text" id="inputNome">
+    <h3>Preço de compra</h3>
+    <input type="text" id="inputPreco">
+    <br><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <br>
+    <button onclick="exibir()">Relatório de estoque</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    var produtos = [];
+    var precos = [];
+
+    function cadastrar() {
+        var produto = inputNome.value;
+        var preco = Number(inputPreco.value);
+
+        produtos.push(produto);
+        precos.push(preco);
+    }
+
+    function exibir() {
+        var mensagem = '';
+
+        var p = 0
+        for(; p < produtos.length; p++) {
+            mensagem += `Total de Produtos: ${produtos.length}<br><br>
+                    Produto ${p+1}: ${produtos[p]}<br><br>
+                    Preço da Compra: R$${(precos[p]).toFixed(2)}. Vender por R$${(precos[p] * 1.25).toFixed(2)}<br><br>`
+        }
+                
+        divMensagem.innerHTML = mensagem;
+    }
+</script>

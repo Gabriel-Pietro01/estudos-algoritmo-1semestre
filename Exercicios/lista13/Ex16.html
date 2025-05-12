@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Avançado de Estoque com Análise de Produtos e Estatísticas</title>
+</head>
+<body>
+<!-- Refaça a 15ª questão de tal forma que, ao final do relatório, o programa exiba:  
+a) O nome do produto mais caro; 
+
+b) O nome do produto mais barato; 
+
+c) A soma dos preços de compra dos produtos; 
+
+d) A média de preço de venda dos produtos.  -->
+     <h3>Nome do produto</h3>
+    <input type="text" id="inputNome">
+    <h3>Preço de compra</h3>
+    <input type="text" id="inputPreco">
+    <br><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <br>
+    <button onclick="exibir()">Relatório de estoque</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    var produtos = [];
+    var precos = [];
+
+    function cadastrar() {
+        var produto = inputNome.value;
+        var preco = Number(inputPreco.value);
+
+        produtos.push(produto);
+        precos.push(preco);
+    }
+
+    function exibir() {
+        var mensagem = '';
+
+        var p = 0
+        for(; p < produtos.length; p++) {
+            mensagem += `Total de Produtos: ${produtos.length}<br><br>
+                    Produto ${p+1}: ${produtos[p]}<br><br>
+                    Preço da Compra: R$${(precos[p]).toFixed(2)}. Vender por R$${(precos[p] * 1.25).toFixed(2)}<br><br>`
+        }
+
+
+        var max = precos[0]
+        var produtoMax = produtos[0]
+        for (var i = 0; i < produtos.length; i++) {
+            if (max < precos[i]) {
+                max = precos[i]
+                produtoMax = produtos[i]
+            }
+        }
+        mensagem += `Produto mais caro: ${produtoMax}<br>`;
+
+
+        var min = precos[0]
+        var produtoMin = produtos[0]
+        for (var i = 0; i < produtos.length; i++) {
+            if (min > precos[i]) {
+                min = precos[i]
+                produtoMin = produtos[i]
+            }
+        }
+        mensagem += `Produto mais barato: ${produtoMin}<br>`;
+
+
+        var soma = 0
+        for (var i = 0; i < produtos.length; i++) {
+            soma += precos[i]
+        }
+        mensagem += `Soma dos produtos: ${soma}<br>`;
+
+
+        var media = 0;
+        var i = 0;
+        for (; i < produtos.length; i++) {
+            media += precos[i]
+        }
+        media = media/i;
+        mensagem += `Média dos preços: ${media}`;
+                
+        divMensagem.innerHTML = mensagem;
+    }
+</script>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Campanha de Time de Futebol com Análise de Aproveitamento</title>
+</head>
+<body>
+    <!-- a) Cadastre a campanha de um time de futebol num campeonato da seguinte forma:  
+
+    a.1) Tenha um 'combo' (select/option) identificado com o texto "Indique o resultado" com os itens:  
+    
+      Vitória  
+    
+      Empate  
+    
+      Derrota  
+    
+    b) Ao clicar num botão "Registrar jogo", o resultado escolhido em a) é registrado em um local invisível ao usuário e um texto abaixo é exibido (ou atualizado). O texto é como este:  
+    
+          O time teve: V vitórias, E empates, D derrotas  
+    
+          Pontuação total: X pontos  
+    
+          Aproveitamento: Y%  
+    
+    Em que X é calculado assim: Cada vitória (V) vale 3 pontos. Cada empate (E) vale 1 ponto. Cada derrota (D) vale 0 pontos.  
+    
+    O Y é o total de pontos conquistados (X) dividido pelo total de pontos possíveis (ou seja, considerando que tivesse vencido todos os jogos) vezes 100.  
+    
+    c) Deve haver um campo "Indique qual jogo deseja saber o resultado". Na medida em que vai digitando, aparece um texto, abaixo do texto de b) como este:  
+    
+      No XXº jogo, o time Ganhou (ou "Perdeu" ou "Empatou")  
+    
+    ou um texto como este, caso o valor seja de um jogo que não foi cadastrado:  
+    
+      Não foi cadastrado um XXº jogo  
+    
+    Obs: Neste item considere que o usuário ache que 1 indica o 1º jogo. Ou seja, o usuário não imagina que o 1º é o jogo "0" na verdade.  -->
+    <h3>Indique o resultado</h3>
+    <select id="selectResultado">
+        <option value="1">Vitória</option>
+        <option value="2">Empate</option>
+        <option value="3">Derrota</option>
+    </select>
+    <br>
+    <button onclick="registrar()">Registrar Jogo</button>
+    <br>
+    <div id="divMensagem"></div>
+    <br>
+    <h3>Indique qual jogo deseja saber o resultado</h3>
+    <input type="number" oninput="exibir()" id="inputJogo">
+    <div id="divMensagem2"></div>
+</body>
+</html>
+
+<script>
+    var resultados = [];
+    
+    function registrar() {
+        var mensagem = '';
+        var resultado = selectResultado.value;
+        
+        resultados.push(resultado);
+        
+        var vitorias = 0;
+        var empates = 0;
+        var derrotas = 0;
+        
+        var i = 0
+        for (; i < resultados.length; i++) {
+
+            if (resultados[i] == 1) {
+                vitorias++;
+            } else if (resultados[i] == 2) {
+                empates++;
+            } else if (resultados[i] == 3) {
+                derrotas++;
+            }
+        }
+
+        var pontos = (vitorias * 3) + (empates * 1);
+        var pontosTotal = i * 3;
+
+        mensagem = ` O time teve: ${vitorias} vitórias, ${empates} empates, ${derrotas} derrotas  <br><br>
+
+      Pontuação total: ${pontos} pontos  
+
+      Aproveitamento: ${(pontos / pontosTotal * 100).toFixed(2)}% <br><br> `;
+      divMensagem.innerHTML = mensagem;
+    }
+
+    function exibir() {
+        var i = Number(inputJogo.value - 1);
+        var mensagem1 = '';
+
+        var jogo = resultados[i]
+
+        if (jogo == 1) {
+            mensagem1 = `No jogo ${i+1} seu time venceu!`;
+        } else if (jogo == 2) {
+            mensagem1 = `No jogo ${i+1} seu time perdeu.`;
+        } else if (jogo == 3) {
+            mensagem1 = `No jogo ${i+1} seu time empatou.`;
+        }
+        divMensagem2.innerHTML = mensagem1;
+    }
+</script>

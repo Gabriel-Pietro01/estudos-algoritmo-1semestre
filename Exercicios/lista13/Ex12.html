@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Filhos sem Repetição e Estimativa de Custo Escolar</title>
+</head>
+<body>
+    <!-- a) Pergunte ao usuário o nome de um de seus filhos; 
+
+    b) Ao clicar em "Cadastrar", o nome do filho fica cadastrado num lugar que o usuário não vê, porém não permita o cadastro de nomes repetidos.  
+    
+    b.1) Em caso de tentativa de nome repetido, exiba um alert com a frase "Não pode mais de 1 filho com o mesmo nome!"  
+    
+    c) Ao clicar em "Atualizar Família", deve aparecer um texto como este abaixo:  
+    
+       Você tem X filhos  
+    
+       Seu custo mensal será aproximadamente R$Y se colocá-los em escola particular ou R$Z se eles estudarem em escola pública  
+    
+       Em que X é a quantidade de filhos cadastrados.  
+    
+       Y é o resultado do seguinte cálculo: filhos x 3000 
+    
+       Z é o resultado do seguinte cálculo: filhos x 1500 -->
+    <h3>Nome de um de seus filhos</h3>
+    <input type="text" id="inputNome">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizar()">Atualizar Família</button>
+    <div id="divMensagem"></div>
+
+</body>
+</html>
+
+<script>
+    var filhos = [];
+
+        function cadastrar() {
+            var filho = inputNome.value;
+
+            if (filhos.includes(filho)) {
+                alert('Não pode mais de 1 filho com o mesmo nome!')
+            } else {
+                filhos.push(filho);
+            }
+        }
+
+        function atualizar() {
+            var mensagem = '';
+            var qtdFilhos = filhos.length;
+            var custoMensal = qtdFilhos * 3000;
+            var custoMensal2 = qtdFilhos * 1500;
+
+
+            mensagem = `
+            Você tem ${qtdFilhos} filhos  <br><br>
+    
+       Seu custo mensal será aproximadamente R$${custoMensal} se colocá-los em escola particular ou R$${custoMensal2} se eles estudarem em escola pública`;
+
+       divMensagem.innerHTML = mensagem;
+        }
+</script>

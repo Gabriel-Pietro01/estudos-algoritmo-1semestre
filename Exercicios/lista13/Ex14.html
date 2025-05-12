@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Números com Histórico, Maior e Menor Valor</title>
+</head>
+<body>
+    <!-- a) Tenha um campo "Digite um número qualquer";  
+
+    b) Tenha um botão "Analisar histórico" que ao ser clicado, o número é cadastrado em algum lugar e, em seguida, deve aparecer um histórico dos números cadastrados, bem como o maior e o menor, como no exemplo a seguir:  
+    
+       1º Número: 15  
+    
+       2º Número: 22  
+    
+       3º Número: 19  
+    
+       4º Número: 5  
+    
+       Maior: 22  
+    
+       Menor: 5   -->
+    <h3>Digite um número qualquer</h3>
+    <input type="text" id="inputNumero">
+    <br>
+    <button onclick="analisar()">Analisar histórico</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    var lista = [];
+
+    function analisar() {
+        var mensagem = '';
+        var numero = Number(inputNumero.value);
+
+        lista.push(numero);
+
+        for (var i = 0; i < lista.length; i++) {
+            mensagem += `${i+1}º Número: ${lista[i]}<br>`;
+        }
+
+        var maior = lista[0];
+        var menor = lista[0];
+
+        for (var max = 0; max < lista.length; max++) {
+            
+            if (lista[max] > maior) {
+                maior = lista[max];
+            }
+
+            if (lista[max] < menor) {
+                menor = lista[max];
+            }
+        }
+        
+        mensagem += `<br>Maior: ${maior} <br>Menor: ${menor}`;
+
+        divMensagem.innerHTML = mensagem;
+    }
+</script>

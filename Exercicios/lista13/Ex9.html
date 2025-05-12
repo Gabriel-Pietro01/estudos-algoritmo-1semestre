@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Projetos e Classificação de Experiência Profissional</title>
+</head>
+<body>
+    <!-- a) Pergunte ao usuário o nome de cada projeto que já criou na vida. Ele digita e clica em "Registrar projeto". Na medida em que vai cadastrando, verifique quantos projetos já foram cadastrados e exiba o seguinte texto abaixo:  
+
+    Você já fez X projetos. Por isso você é um profissional Z  
+
+    X é a quantidade de projetos e Z é seu nível de experiência, segundo estas regras:  
+
+    0 a 4: Júnior  
+
+    5 a 12: Pleno  
+
+    13 ou mais: Sênior  
+
+b)  Tenha um botão “Mostrar Projetos” que quando clicado mostra os projetos cadastrados, um abaixo do outro, em ordem inversa ao que foi cadastrado.   -->
+    <h3>Projetos</h3>
+    <input type="text" id="inputProjeto">
+    <button onclick="registrar()">Registrar Projeto</button>
+    <div id="divMensagem"></div>
+    <br>
+    <button onclick="visualizar()">Mostrar Projetos</button>
+    <div id="divMensagemLista"></div>
+</body>
+</html>
+
+<script>
+    var projetos = [];
+
+    function registrar() {
+        var mensagem = '';
+        var projeto = inputProjeto.value;
+
+        projetos.push(projeto);
+
+        var i = 0;
+        for (; i < projetos.length; i++) {
+        }
+
+        if (i <= 4) {
+            mensagem = `Você já fez ${i} projetos. Por isso você é um profissional Júnior`;
+        } else if (i <= 12) {
+            mensagem = `Você já fez ${i} projetos. Por isso você é um profissional Pleno`;
+        } else {
+            mensagem = `Você já fez ${i} projetos. Por isso você é um profissional Sênior`;
+        }
+        divMensagem.innerHTML = mensagem;
+    }
+
+    function visualizar() {
+        var mensagem1 = '';
+
+        for (var contador = projetos.length; contador > 0; contador--) {
+            mensagem1 += `${projetos[contador - 1]}<br>`;
+        }
+        divMensagemLista.innerHTML = mensagem1;
+    }
+</script>
