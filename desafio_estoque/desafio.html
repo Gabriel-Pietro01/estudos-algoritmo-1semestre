@@ -20,6 +20,7 @@
     <button onclick="repor()">Repor Estoque</button> <br> <br>
     <button onclick="venda()">Vender Produto</button> <br> <br>
     <button onclick="relatorio()">Exibir Relatório</button> <br> <br>
+    <button onclick="remover()">Remover Produto</button> <br> <br>
     <div id="div_mensagem"></div>
 </body>
 
@@ -54,7 +55,7 @@
         if (validar() == false) {
             alert('ERROR: Campos Inválidos');
         } else if (validar() == true) {
-            listaProdutos.push([produto, codigo, quantidade]);
+            listaProdutos.push([produto, codigo, quantidade, 0]);
             div_mensagem.innerHTML = `Produto ${produto} registrado com sucesso`
         }
     }
@@ -89,7 +90,8 @@
                     div_mensagem.innerHTML = `Quantidade inválida.`;
                     break
                 }
-                listaProdutos[i][2] -= quantidade
+                listaProdutos[i][2] -= quantidade;
+                listaProdutos[i][3] += quantidade;
                 if (listaProdutos[i][2] < 10) {
                     alert(`O Produto ${produto} precisa de reposição!`);
                     div_mensagem.innerHTML = `${quantidade}x do ${produto} foi vendido com sucesso <br> Código: ${codigo} | Produto: ${produto} | Quantidade em Estoque: ${listaProdutos[i][2]} (Precisa Repor)`;
@@ -105,6 +107,14 @@
 
     function relatorio() {
         var msg = '';
+        var qtdMaior = listaProdutos[0][2];
+        var qtdMenor = listaProdutos[0][2];
+        var produtoMaiorQuantidade = listaProdutos[0][0];
+        var produtoMenorQuantidade = listaProdutos[0][0];
+        var maisVendido = listaProdutos[0][0];
+        var menosVendido = listaProdutos[0][0];
+        var vendaMaisAlta = listaProdutos[0][3];
+        var vendaMaisBaixa = listaProdutos[0][3];
 
         for (var i = 0; i < listaProdutos.length; i++) {
             if (listaProdutos[i][2] < 10) {
@@ -112,8 +122,45 @@
             } else {
                 msg += `<br>Código: ${listaProdutos[i][1]} | Produto: ${listaProdutos[i][0]} | Quantidade em Estoque: ${listaProdutos[i][2]} (OK) <br>`;
             }
+
+            if (listaProdutos[i][2] > qtdMaior) {
+                qtdMaior = listaProdutos[i][2];
+                produtoMaiorQuantidade = listaProdutos[i][0];
+            }
+            if (listaProdutos[i][2] < qtdMenor) {
+                qtdMenor = listaProdutos[i][2];
+                produtoMenorQuantidade = listaProdutos[i][0];
+            }
+
+            if (listaProdutos[i][3] > vendaMaisAlta) {
+                vendaMaisAlta = listaProdutos[i][3];
+                maisVendido = listaProdutos[i][0];
+            }
+            if (listaProdutos[i][3] < vendaMaisBaixa) {
+                vendaMaisBaixa = listaProdutos[i][3];
+                menosVendido = listaProdutos[i][0];
+            }
         }
 
-        div_mensagem.innerHTML = msg;
+        div_mensagem.innerHTML = `${msg} <br><br> Produto com maior quantidade em estoque: ${produtoMaiorQuantidade} | Produto com menor quantidade em estoque: ${produtoMenorQuantidade} | Produto mais vendido: ${maisVendido} | Produto menos vendido: ${menosVendido}`;
+    }
+
+    function remover() {
+        var produto = input_nome.value;
+        var codigo = Number(input_codigo.value);
+        var encontrou = false;
+
+        for (var i = 0; i < listaProdutos.length; i++) {
+            if (produto == listaProdutos[i][0] && codigo == listaProdutos[i][1]) {
+                listaProdutos.splice(i, 1); 
+                encontrou = true;
+                div_mensagem.innerHTML = `Produto ${produto} removido com sucesso.`;
+                break;
+            }
+        }
+
+        if (!encontrou) {
+            div_mensagem.innerHTML = `Produto não encontrado para remoção.`;
+        }
     }
 </script>
