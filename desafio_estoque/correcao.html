@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correção - Controle de Estoque</title>
+</head>
+
+<body>
+    <main>
+        <header>
+            <h2>Cadastro</h2>
+        </header>
+
+        <section>
+            Nome do Produto:
+            <input type="text" id="input_nome"> <br><br>
+
+            Código do Produto:
+            <input type="text" id="input_codigo"> <br><br>
+
+            Quantidade do Produto:
+            <input type="number" id="input_quantidade"> <br><br>
+        </section>
+
+        <section>
+            <button onclick="cadastrar()">Cadastrar Produto</button>
+            <button onclick="repor()">Repor Estoque</button>
+            <button onclick="vender()">Vender Produto</button>
+            <button onclick="exibir()">Exibir Relatório</button>
+        </section>
+
+        <section>
+            <div id="div_mensagem"></div>
+        </section>
+    </main>
+
+</body>
+
+</html>
+<script>
+    var lista_nomes = [];
+    var lista_codigos = [];
+    var lista_quantidades = [];
+
+    function cadastrar() {
+        var nome = input_nome.value;
+        var codigo = input_codigo.value;
+        var quantidade = Number(input_quantidade.value);
+
+        if (nome != "" && codigo != "" && quantidade > 10) {
+            var existe = false;
+
+            for (var i = 0; i < lista_codigos.length; i++) {
+                var codigo_atual = lista_codigos[i];
+
+                if (codigo_atual == codigo) {
+                    existe = true;
+                    break;
+                }
+            }
+
+            if (existe) {
+                div_mensagem.innerHTML = "Código de produto ja existe!"
+            } else {
+                lista_nomes.push(nome);
+                lista_codigos.push(codigo);
+                lista_quantidades.push(quantidade);
+            }
+
+        } else {
+            div_mensagem.innerHTML = "Preencha todos os campos para cadastrar o produto.";
+        }
+    }
+
+    function vender() {
+        var nome = input_nome.value;
+        var codigo = input_codigo.value;
+        var quantidade = Number(input_quantidade.value);
+
+        var indice = -1;
+
+        // tanto faz qual lista.length usar, todas tem o mesmo tamanho
+        for (var i = 0; i < lista_codigos.length; i++) {
+            var nome_atual = lista_nomes[i];
+            var codigo_atual = lista_codigos[i];
+            var quantidade_atual = lista_quantidades[i];
+
+            if (nome_atual == nome && codigo_atual == codigo) {
+                indice = i;
+                break;
+            }
+        }
+
+        if (indice > -1) {
+            if (quantidade > lista_quantidades[indice]) {
+                div_mensagem.innerHTML = "Quantidade inválida.";
+            } else {
+                lista_quantidades[i] -= quantidade;
+
+                if (lista_quantidades[indice] < 10) {
+                    div_mensagem.innerHTML = `${quantidade}x do ${nome} foi vendido com sucesso <br> Código: ${codigo} | Produto: ${nome} | Quantidade em Estoque: ${lista_quantidades[indice]} (Precisa Repor)`;
+                } else {
+                    div_mensagem.innerHTML = `${quantidade}x do ${nome} foi vendido com sucesso <br> Código: ${codigo} | Produto: ${nome} | Quantidade em Estoque: ${lista_quantidades[indice]}`;
+                }
+
+            }
+        } else {
+            div_mensagem.innerHTML = "Produto não identificado.";
+        }
+    }
+
+    function repor() {
+        var nome = input_nome.value;
+        var codigo = input_codigo.value;
+        var quantidade = Number(input_quantidade.value);
+
+        var indice = -1;
+
+        // tanto faz qual lista.length usar, todas tem o mesmo tamanho
+        for (var i = 0; i < lista_codigos.length; i++) {
+            var nome_atual = lista_nomes[i];
+            var codigo_atual = lista_codigos[i];
+            var quantidade_atual = lista_quantidades[i];
+
+            if (nome_atual == nome && codigo_atual == codigo) {
+                indice = i;
+                break;
+            }
+        }
+
+        if (indice > -1) {
+            if (quantidade <= 0) {
+                div_mensagem.innerHTML = "Quantidade inválida.";
+            } else {
+                lista_quantidades[i] += quantidade;
+
+                if (lista_quantidades[indice] < 10) {
+                    div_mensagem.innerHTML = `${quantidade}x do ${nome} foi reposto com sucesso <br> Código: ${codigo} | Produto: ${nome} | Quantidade em Estoque: ${lista_quantidades[indice]} (Precisa Repor)`;
+                } else {
+                    div_mensagem.innerHTML = `${quantidade}x do ${nome} foi reposto com sucesso <br> Código: ${codigo} | Produto: ${nome} | Quantidade em Estoque: ${lista_quantidades[indice]}`;
+                }
+
+            }
+        } else {
+            div_mensagem.innerHTML = "Produto não identificado.";
+        }
+    }
+</script>
