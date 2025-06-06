@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Baralho - Sete e Meio</title>
+    <style>
+        * {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section {
+            height: 100vh;
+            width: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            margin-top: 20vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: darkgreen;
+            height: 10vh;
+            width: 35vh;
+            color: white;
+            border-radius: 20px;
+        }
+
+        button {
+            margin-top: 15vh;
+            font-size: 16px;
+            width: 20vh;
+            height: 5vh;
+            background-color: white;
+            border: 2px solid #000;
+            border-radius: 15px;
+            color: #000;
+            cursor: pointer;
+        }
+
+        button:hover {
+            transition: all 0.5s ease;
+            background-color: #000;
+            color: #fff;
+        }
+
+        #jogo {
+            display: none;
+            height: 100vh;
+            width: 100vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .botoes {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        #replay-btn {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="menu">
+        <header>
+            <h1>Sete e Meio</h1>
+        </header>
+
+        <button onclick="jogar()">Jogar</button>
+    </section>
+
+    <div id="jogo">
+        <h1>Pontuações</h1>
+        <h2>Jogador: <span id="pontuacao-jogador"></span></h2>
+        <h2>Banca: <span id="pontuacao-mesa">0</span></h2>
+        <div id="carta-pega">a</div>
+        <div class="botoes" id="botoes">
+            <button onclick="pegar()">Pegar mais uma carta</button>
+            <button onclick="parar()">Parar</button>
+        </div>
+        <button onclick="jogarNovamente()" id="replay-btn">Jogar novamente</button>
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    let baralho = [
+        'Ás - Copas', '2 - Copas', '3 - Copas', '4 - Copas', '5 - Copas', '6 - Copas', '7 - Copas', 'Valete - Copas', 'Rainha - Copas', 'Rei - Copas',
+        'Ás - Espadas', '2 - Espadas', '3 - Espadas', '4 - Espadas', '5 - Espadas', '6 - Espadas', '7 - Espadas', 'Valete - Espadas', 'Rainha - Espadas', 'Rei - Espadas',
+        'Ás - Ouros', '2 - Ouros', '3 - Ouros', '4 - Ouros', '5 - Ouros', '6 - Ouros', '7 - Ouros', 'Valete - Ouros', 'Rainha - Ouros', 'Rei - Ouros',
+        'Ás - Paus', '2 - Paus', '3 - Paus', '4 - Paus', '5 - Paus', '6 - Paus', '7 - Paus', 'Valete - Paus', 'Rainha - Paus', 'Rei - Paus'
+    ];
+
+    let baralhoEmbaralhado = [];
+
+    let cartasJogador = [];
+    let contador = 0;
+
+    let cartasMesa = [];
+    let contadorMesa = 0;
+
+    let pontuacaoJogador = 0;
+    let pontuacaoMesa = 0;
+
+    function jogar() {
+        const menu = document.getElementById('menu');
+        const jogo = document.getElementById('jogo');
+
+        menu.style.display = 'none';
+        jogo.style.display = 'flex';
+        embaralhar();
+
+        pegar();
+    }
+
+    function embaralhar() {
+        while (baralho.length > 0) {
+            let numRandom = Math.floor(Math.random() * baralho.length);
+            let carta = baralho[numRandom];
+            baralhoEmbaralhado.push(carta);
+            baralho.splice(numRandom, 1);
+        }
+    }
+
+    function pegar() {
+        const divCartaPega = document.getElementById('carta-pega');
+
+        cartasJogador.push(baralhoEmbaralhado[0]);
+        divCartaPega.innerHTML = `<h3>Você pegou a carta: ${baralhoEmbaralhado[0]}</h3>`;
+        baralhoEmbaralhado.splice(0, 1);
+        verificar()
+        contador++;
+    }
+
+    function pegarMesa() {
+        cartasMesa.push(baralhoEmbaralhado[0]);
+        baralhoEmbaralhado.splice(0, 1);
+        verificarMesa()
+        contadorMesa++;
+    }
+
+    function parar() {
+        const botoes = document.getElementById('botoes');
+        const replayBtn = document.getElementById('replay-btn');
+
+        botoes.style.display = 'none';
+        replayBtn.style.display = 'flex';
+
+        while (pontuacaoMesa < pontuacaoJogador) {
+            pegarMesa();
+        }
+
+        if (pontuacaoMesa > pontuacaoJogador && pontuacaoMesa < 7.5) {
+            alert(`VOCÊ PERDEU! A banca venceu com ${pontuacaoMesa} pontos!`);
+        }
+    }
+
+    function verificar() {
+        const pontuacaoJogadorDiv = document.getElementById('pontuacao-jogador');
+
+        if (cartasJogador[contador].includes('Ás')) {
+            pontuacaoJogador += 1;
+            pontuacaoJogadorDiv.innerHTML = pontuacaoJogador;
+        } else if (cartasJogador[contador].includes('2')) {
+            pontuacaoJogador += 2;
+            pontuacaoJogadorDiv.innerHTML = pontuacaoJogador;
+        } else if (cartasJogador[contador].includes('3')) {
+            pontuacaoJogador += 3;
+            pontuacaoJogadorDiv.innerHTML = pontuacaoJogador;
+        } else if (cartasJogador[contador].includes('4')) {
+            pontuacaoJogador += 4;
+            pontuacaoJogadorDiv.innerHTML = pontuacaoJogador;
+        } else if (cartasJogador[contador].includes('5')) {
+            pontuacaoJogador += 5;
+            pontuacaoJogadorDiv.innerHTML = pontuacaoJogador;
+        } else if (cartasJogador[contador].includes('6')) {
+            pontuacaoJogador += 6;
+            pontuacaoJogadorDiv.innerHTML = pontuacaoJogador;
+        } else if (cartasJogador[contador].includes('7')) {
+            pontuacaoJogador += 7;
+            pontuacaoJogadorDiv.innerHTML = pontuacaoJogador;
+        } else {
+            pontuacaoJogador += 0.5;
+            pontuacaoJogadorDiv.innerHTML = pontuacaoJogador;
+        }
+
+        verificarEstourou();
+    }
+
+    function verificarMesa() {
+        const pontuacaoMesaDiv = document.getElementById('pontuacao-mesa');
+
+        if (cartasMesa[contadorMesa].includes('Ás')) {
+            pontuacaoMesa += 1;
+            pontuacaoMesaDiv.innerHTML = pontuacaoMesa;
+        } else if (cartasMesa[contadorMesa].includes('2')) {
+            pontuacaoMesa += 2;
+            pontuacaoMesaDiv.innerHTML = pontuacaoMesa;
+        } else if (cartasMesa[contadorMesa].includes('3')) {
+            pontuacaoMesa += 3;
+            pontuacaoMesaDiv.innerHTML = pontuacaoMesa;
+        } else if (cartasMesa[contadorMesa].includes('4')) {
+            pontuacaoMesa += 4;
+            pontuacaoMesaDiv.innerHTML = pontuacaoMesa;
+        } else if (cartasMesa[contadorMesa].includes('5')) {
+            pontuacaoMesa += 5;
+            pontuacaoMesaDiv.innerHTML = pontuacaoMesa;
+        } else if (cartasMesa[contadorMesa].includes('6')) {
+            pontuacaoMesa += 6;
+            pontuacaoMesaDiv.innerHTML = pontuacaoMesa;
+        } else if (cartasMesa[contadorMesa].includes('7')) {
+            pontuacaoMesa += 7;
+            pontuacaoMesaDiv.innerHTML = pontuacaoMesa;
+        } else {
+            pontuacaoMesa += 0.5;
+            pontuacaoMesaDiv.innerHTML = pontuacaoMesa;
+        }
+
+        verificarEstourouMesa();
+    }
+
+    function verificarEstourou() {
+        const pontuacaoJogadorDiv = document.getElementById('pontuacao-jogador');
+        const botoes = document.getElementById('botoes');
+        const replayBtn = document.getElementById('replay-btn');
+
+        if (pontuacaoJogador > 7.5) {
+            botoes.style.display = 'none'
+            pontuacaoJogadorDiv.style.color = 'red';
+            pontuacaoJogadorDiv.innerHTML = `ESTOUROU!`;
+            replayBtn.style.display = 'flex';
+            alert('VOCÊ PERDEU!')
+        } else if (pontuacaoJogador == 7.5) {
+            botoes.style.display = 'none'
+            pontuacaoJogadorDiv.style.color = 'green';
+            pontuacaoJogadorDiv.innerHTML = `7.5`;
+            replayBtn.style.display = 'flex';
+            alert('SETE E MEIO! Você venceu com 7.5 pontos!')
+        }
+    }
+
+    function verificarEstourouMesa() {
+        const pontuacaoMesaDiv = document.getElementById('pontuacao-mesa');
+
+        if (pontuacaoMesa > 7.5) {
+            pontuacaoMesaDiv.style.color = 'red';
+            pontuacaoMesaDiv.innerHTML = `ESTOUROU!`;
+            alert(`A BANCA ESTOUROU! Você venceu com ${pontuacaoJogador} pontos!`);
+        } else if (pontuacaoMesa == 7.5) {
+            alert(`SETE E MEIO! A banca venceu com 7.5 pontos!`)
+        }
+    }
+
+    function jogarNovamente() {
+        window.location.reload();
+    }
+</script>
