@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function buscarUsuarios() {
+        fetch('http://localhost:3000/usuarios')
+            .then(function (resposta) {
+                if (resposta.status == 200) {
+                    resposta.json()
+                        .then(function (dados) {
+                            console.log(dados);
+                        })
+                }
+            })
+    }
+
+    function criarUsuario() {
+        fetch('http://localhost:3000/usuarios', {
+            method: "POST",
+            body: JSON.stringify({
+                nome: "Zeca"
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(function (resposta) {
+                console.log(resposta);
+            })
+            .catch(function (erro) {
+                console.log('Erro: ', erro)
+            })
+    }
+
+    function deletarUsuario() {
+        const id = prompt('Usuário a deletar:');
+
+        fetch(`http://localhost:3000/usuarios/${id}`, {
+            method: "DELETE"
+        })
+            .then(function (resposta) {
+                console.log('Resposta: ', resposta);
+            })
+            .catch(function (erro) {
+                console.warn('Erro: ', erro)
+            })
+    }
+
+    function atualizarUsuario() {
+        const id = prompt('Usuário a atualizar:');
+        const nome = prompt('Novo nome de usuário:')
+
+        fetch(`http://localhost:300/usuarios/${id}`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                nome
+            })
+        })
+            .then(function (resposta) {
+                console.log('Resposta: ', resposta);
+            })
+            .catch(function (erro) {
+                console.log('Erro: ', erro);
+            })
+    }
+</script>

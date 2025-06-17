@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    CEP:
+    <input oninput="buscarCep()" type="text" id="input_cep">
+    <br><br>
+    Logradouro:
+    <input type="text" id="input_logradouro" disabled>
+    <br><br>
+    Cidade:
+    <input type="text" id="input_cidade" disabled>
+    <br><br>
+    Bairro:
+    <input type="text" id="input_bairro" disabled>
+</body>
+
+</html>
+
+<script>
+    function buscarCep() {
+        const cep = input_cep.value;
+
+        if (cep.length == 8) {
+            fetch(`https://viacep.com.br/ws/${cep}/json/`) // FETCH -> FAZ UMA REQUISIÇÃO NA URL PASSADA
+                .then(function (resultado) {
+                    resultado.json()
+                        .then(function (dados) {
+                            input_logradouro.value = dados.logradouro;
+                            input_cidade.value = dados.localidade;
+                            input_bairro.value = dados.bairro;
+                        })
+                })
+                .catch(function (erro) {
+                    console.log('ERRO: ', erro);
+                })
+        }
+
+
+    }
+</script>
