@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome: <input type="text" id="input_nome"> <br>
+    Idade: <input type="text" id="input_idade"> <br>
+    <button onclick="cumprimentar()">Cumprimentar</button> <br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function cumprimentar() {
+        const usuario = {
+            nome: "",
+            idade: ""
+        }
+
+        const nome = input_nome.value;
+        const idade = Number(input_idade.value);
+
+        usuario.nome = nome;
+        usuario.idade = idade;
+        usuario.altura = 1.83;
+
+        usuario.cor_cabelo = "Castanho";
+        delete usuario.cor_cabelo;
+
+        div_mensagem.innerHTML = `
+            <h2>Bem-vind@, usuári@!</h2>
+            <br><br>
+            Nome: ${usuario.nome} <br>
+            Idade: ${usuario.idade} <br>
+        `
+    }
+</script>
